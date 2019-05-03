@@ -303,6 +303,9 @@
     .service-image {
         margin-bottom: 50px;
     }
+    .company-image {
+        text-align: center;
+    }
     .promo-content h2 {
         font-size: 26px;
     }
