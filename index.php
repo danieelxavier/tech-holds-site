@@ -482,39 +482,8 @@
     <!--CONTACT US AREA END-->
 
     <!--FOOER AREA-->
-    <div class="footer-area white">
-        <div class="footer-top-area padding-100-50 dark-bg">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
-                        <div class="footer-social-bookmark text-center wow fadeIn">
-                            <h2>TECH-HOLDS MARITIME SERVICES</h2>
-                            <ul class="social-bookmark">
-                                <li><a class="facebook" href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                <li><a class="twitter" href="#"><i class="fab fa-twitter"></i></a></li>
-                                <li><a class="linkedin" href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                <li><a class="instagram" href="#"><i class="fab fa-instagram"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom-area deep-dark-bg">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
-                        <div class="footer-copyright text-center wow fadeIn">
-                            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-&copy;<script>document.write(new Date().getFullYear());</script> TECH-HOLDS. All rights reserved | Made by <a href="https://www.linkedin.com/in/danieelxavier/" target="_blank">Daniel Xavier</a> with <a href="https://colorlib.com" target="_blank">Colorlib</a> template
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+
+    <?php  include("footer.html");  ?>
     <!--FOOER AREA END-->
 
 

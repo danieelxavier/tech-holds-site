@@ -1,13 +1,14 @@
 <?php
 // Configure your Subject Prefix and Recipient here
 $subjectPrefix = '[Contact Form Website]';
-$emailTo       = '<mehedidb@gmail.com>';
+$emailTo       = 'danieelxavier@gmail.com';
 $errors = array(); // array to hold validation errors
 $data   = array(); // array to pass back data
 if($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name    = stripslashes(trim($_POST['name']));
     $email   = stripslashes(trim($_POST['email']));
     $phone = stripslashes(trim($_POST['phone']));
+    $subject = stripslashes(trim($_POST['subject']));
     $message = stripslashes(trim($_POST['message']));
     if (empty($name)) {
         $errors['name'] = 'Name is required.';

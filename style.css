@@ -1189,6 +1189,41 @@ ul#nav li ul a,
 }
 
 /*---------------------------------
+    14. LOGIN AREA
+----------------------------------*/
+
+.login-area h2 {
+    margin-bottom: 30px;
+}
+
+
+.login-form input,
+.contact-form textarea {
+    border-radius: 0;
+    margin-bottom: 20px;
+    min-height: 50px;
+    padding: 10px;
+}
+
+.login-form button {
+    background: #74CBC8 none repeat scroll 0 0;
+    border: 0 none;
+    color: #fff;
+    letter-spacing: 1px;
+    padding: 15px 20px;
+    text-transform: uppercase;
+    -webkit-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+    margin-bottom: 100px;
+}
+
+.login-form button:hover {
+    background: #292929 none repeat scroll 0 0;
+    color: #ffffff;
+}
+
+
+/*---------------------------------
     14. CONTACT AREA
 ----------------------------------*/
 
