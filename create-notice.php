@@ -121,7 +121,7 @@
 
                             <h1>New Notice</h1>
 
-                            <form action="php/create-notice-process.php" id="create-notice-form" method="post" enctype="multipart/form-data">
+                            <form action="#" id="create-notice-form" method="post" enctype="multipart/form-data">
 
                                 <div class="form-group" id="title-field">
                                     <div class="form-input">
@@ -144,7 +144,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <button type="submit" id="release-notice">Release</button>
+                                    <button type="button" id="release-notice">Release</button>
                                 </div>
 
                             </form>
@@ -169,9 +169,75 @@
 
     <script type="text/javascript">
 
-        // document.getElementById("aa").onclick = function () {
-        //     console.log(document.getElementById("form-image").innerText);
-        // };
+
+        $('#release-notice').click(function(){
+
+
+            var formdata = new FormData();
+
+            var files =  $('#form-image').prop('files');
+
+            if(files.length > 0)
+            {
+                var file = files[0];
+                formdata.append("form-image", file);
+            }
+
+            var title = $('#form-title').val();
+            var body = $('#form-body').val()
+
+            formdata.append("form-title", title);
+            formdata.append("form-body", body);
+
+            console.log(formdata);
+            console.log(title);
+            console.log(body);
+            console.log(files[0]);
+
+            $.ajax({
+                type: "POST",
+                enctype: 'multipart/form-data',
+                data: formdata,
+                url: "php/create-notice-process.php",
+                processData: false,
+                contentType:false,
+                dataType:"json",
+                success: function(response){
+                    console.log(response);
+
+                    if (response.status === 'success'){
+                        console.log(response.message);
+
+                    } else{
+                        console.log(response.message);
+                    }
+
+
+                }
+            });
+
+
+
+            // $.ajax({
+            //     type: "POST",
+            //     data: { name: name,
+            //         email : email,
+            //         subject: subject,
+            //         message: message,},
+            //     url: "mail.php",
+            //     dataType: "json",
+            //     complete: function (xhr, status,) {
+            //         console.log(xhr);
+            //         if(status === 'error' || xhr.responseJSON['status'] === 'error'){
+            //
+            //         }
+            //         else{
+            //
+            //         }
+            //     }
+            //
+            // });
+        });
 
     </script>
 

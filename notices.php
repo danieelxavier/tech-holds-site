@@ -102,6 +102,10 @@
                 <!-- news be here  -->
 
             </div>
+
+            <div class="row area-load-more center col-md-12 col-lg-12 col-sm-12 col-xs-12" id="load-more">
+                <button type="button" class="btn btn-info btn-load-more" id="btn-load-more">Load more...</button>
+            </div>
         </div>
     </section>
     <!--SERVICE TOP AREA END-->
@@ -141,6 +145,9 @@
 
         var notices = document.getElementById("notices");
 
+        var offsetNotices = 0;
+        var limitNotices = 10;
+
         var newNotice = function(objNotice){
             var newNotice = notices.appendChild(document.createElement("div"));
             newNotice.setAttribute("class", "single-notice wow fadeIn");
@@ -173,44 +180,43 @@
             buttonDelete.innerText = "Delete";
         };
 
-        $.ajax({
-            type: "GET",
-            url: "php/notices-process.php",
-            dataType:'JSON',
-            success: function(response){
-                console.log(response);
-                
-                for (objNotice of response){
-                    console.log(objNotice.title);
+        var loadNoticesByDB = function(limit, offset){
 
-                    newNotice(objNotice);
+            $.ajax({
+                type: "GET",
+                url: "php/notices-process.php",
+                data: { "offset": offset,
+                    "limit" : limit },
+                dataType:'JSON',
+                success: function(response){
+                    console.log(response);
+
+                    if(response.length < limitNotices){
+                        $("#btn-load-more").hide();
+                    }
+
+                    for (objNotice of response){
+                        console.log(objNotice.title);
+
+                        newNotice(objNotice);
+                    }
+
                 }
-                
-            }
-        });
+            });
 
-        document.getElementById("btn-create-notice").onclick = function () {
-            location.href='create-notice.php';
         };
 
-        
-        // document.getElementById("comentar").onclick = function () {
-        //
-        //     var text = String(document.getElementById("comentario").value);
-        //
-        //     if(text != ""){
-        //         var newcomentario = comentarios.appendChild(document.createElement("div"));
-        //
-        //         newcomentario.setAttribute("class", "single-service text-center wow fadeIn");
-        //
-        //         var imageContent = newcomentario.appendChild(document.createElement("div"));
-        //         imageContent.setAttribute("class", "service-icon");
-        //         var image = imageContent.appendChild(document.createElement("div"));
-        //         image.setAttribute("class", "i fa fa-tools");
-        //
-        //         newcomentario.appendChild(document.createElement("h3")).innerHTML = text;
-        //     }
-        // };
+        loadNoticesByDB(limitNotices, offsetNotices);
+
+        $("#btn-create-notice").click( function () {
+            location.href='create-notice.php';
+        });
+
+        $("#btn-load-more").click(function () {
+            offsetNotices += 10;
+            loadNoticesByDB(limitNotices, offsetNotices);
+        });
+
 
     </script>
 

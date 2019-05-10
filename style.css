@@ -717,6 +717,10 @@ ul#nav li ul a,
     text-transform: uppercase;
 }
 
+.area-load-more{
+    margin: 20px 0 30px 0;
+}
+
 
 /*--------------------------------
     4. SERVICE TOP AREA
