@@ -447,7 +447,7 @@
                     <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                         <div class="contact-form mb50 wow fadeIn">
                             <h2>Send Message</h2>
-                            <form action="process.php" id="contact-form" method="post">
+                            <form action="php/contact-process.php" id="contact-form" method="post">
                                 <div class="form-group" id="name-field">
                                     <div class="form-input">
                                         <input type="text" class="form-control" id="form-name" name="form-name" placeholder="Name.." required>

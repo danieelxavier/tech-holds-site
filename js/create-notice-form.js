@@ -14,7 +14,7 @@ Ajax Contact Form
 (function ($, window, document, undefined) {
     'use strict';
 
-    var $form = $('#contact-form');
+    var $form = $('#create-notice-form');
 
     $form.submit(function (e) {
         // remove the error class
@@ -23,41 +23,36 @@ Ajax Contact Form
 
         // get the form data
         var formData = {
-            'name' : $('input[name="form-name"]').val(),
-            'email' : $('input[name="form-email"]').val(),
-            'phone' : $('input[name="form-phone"]').val(),
-            'message' : $('textarea[name="form-message"]').val()
+            'title' : $('input[name="form-title"]').val(),
+            'body' : $('input[name="form-body"]').val(),
+            'image' : $('input[name="form-image"]').val()
         };
 
         // process the form
         $.ajax({
             type : 'POST',
-            url  : 'php/contact-process.php',
+            url  : 'php/create-notice-process.php',
             data : formData,
             dataType : 'json',
             encode : true
         }).done(function (data) {
             // handle errors
             if (!data.success) {
-                if (data.errors.name) {
-                    $('#name-field').addClass('has-error');
-                    $('#name-field').find('.form-input').append('<span class="help-block">' + data.errors.name + '</span>');
+                if (data.errors.title) {
+                    $('#title-field').addClass('has-error');
+                    $('#title-field').find('.form-input').append('<span class="help-block">' + data.errors.title + '</span>');
                 }
 
-                if (data.errors.email) {
-                    $('#email-field').addClass('has-error');
-                    $('#email-field').find('.form-input').append('<span class="help-block">' + data.errors.email + '</span>');
+                if (data.errors.body) {
+                    $('#body-field').addClass('has-error');
+                    $('#body-field').find('.form-input').append('<span class="help-block">' + data.errors.body + '</span>');
                 }
 
-                if (data.errors.phone) {
-                    $('#phone-field').addClass('has-error');
-                    $('#phone-field').find('.form-input').append('<span class="help-block">' + data.errors.phone + '</span>');
+                if (data.errors.image) {
+                    $('#image-field').addClass('has-error');
+                    $('#image-field').find('.form-input').append('<span class="help-block">' + data.errors.image + '</span>');
                 }
 
-                if (data.errors.message) {
-                    $('#message-field').addClass('has-error');
-                    $('#message-field').find('.form-input').append('<span class="help-block">' + data.errors.message + '</span>');
-                }
             } else {
                 // display success message
                 $form.html('<div class="alert alert-success">' + data.message + '</div>');

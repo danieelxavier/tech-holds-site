@@ -656,6 +656,68 @@ ul#nav li ul a,
     color: #74CBC8;
 }
 
+
+/*--------------------------------
+    4. NOTICES SCREEN AREA
+---------------------------------*/
+
+.single-notice {
+    /*width: 50%;*/
+    background: #fff;
+    overflow: hidden;
+    border: 2px solid #74CBC8;
+    border-radius: 5px;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+.single-notice img {
+    width: 20%;
+    float: left;
+    /*border: 1px solid #74CBC8;*/
+    -webkit-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+}
+
+.single-notice h3{
+    float: left;
+    width: auto;
+    max-width: 78%;
+    margin-left: 2%;
+
+}
+
+.single-notice p {
+    float: left;
+    margin-left: 2%;
+    width: 78%;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+}
+
+.notice-options{
+    float: right;
+    text-align: right;
+}
+
+.notice-options button{
+    margin-left: 5px;
+    text-transform: uppercase;
+}
+
+.actions-notice{
+    width: 100%;
+}
+
+.actions-notice button{
+    text-transform: uppercase;
+}
+
+
 /*--------------------------------
     4. SERVICE TOP AREA
 ---------------------------------*/
@@ -1187,6 +1249,54 @@ ul#nav li ul a,
     overflow: hidden;
     width: 33.33%;
 }
+
+
+/*---------------------------------
+    14. CREATE NOTICE AREA
+----------------------------------*/
+
+.create-notice-area h2 {
+    margin-bottom: 30px;
+}
+
+
+.create-notice-form input,
+.contact-form textarea {
+    border-radius: 0;
+    margin-bottom: 20px;
+    min-height: 50px;
+    padding: 10px;
+}
+
+.create-notice-form button {
+    float: right;
+    background: #74CBC8 none repeat scroll 0 0;
+    border: 0 none;
+    color: #fff;
+    letter-spacing: 1px;
+    padding: 15px 20px;
+    text-transform: uppercase;
+    -webkit-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+    margin-bottom: 100px;
+}
+
+.create-notice-form button:hover {
+    background: #292929 none repeat scroll 0 0;
+    color: #ffffff;
+}
+
+.input-image {
+    width: 100%;
+    border: 1px solid #aaa;
+    border-radius: 100px;
+}
+
+.input-image:hover{
+    cursor: pointer;
+}
+
+
 
 /*---------------------------------
     14. LOGIN AREA

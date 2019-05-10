@@ -1,15 +1,3 @@
-<?php
-session_start();
-
-if (!empty($_SESSION['start'])) {
-
-    header('Location: notices.php');
-    exit();
-}
-?>
-
-
-
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -27,7 +15,7 @@ if (!empty($_SESSION['start'])) {
     <meta name="keywords" content="Personal, Portfolio, Agency, Onepage, Html, Business" />
 
     <!--====== TITLE TAG ======-->
-    <title>TECH-HOLDS Admin - Login</title>
+    <title>TECH-HOLDS Admin - Notices</title>
 
     <!--====== FAVICON ICON =======-->
     <link rel="shortcut icon" type="image/ico" href="img/favicon.png" />
@@ -78,14 +66,15 @@ if (!empty($_SESSION['start'])) {
                 <nav class="navbar">
                     <div class="container">
                         <div class="navbar-header">
-                            <h1>
-                                <a href="#home" class="navbar-brand"><img src="img/logo.png" alt="Tech Holds Maritime Services Vessel Cleaning" width="160"></a>
-                            </h1>
+                            <a href="#home" class="navbar-brand"><img src="img/logo.png" alt="Tech Holds Maritime Services Vessel Cleaning" width="160"></a>
+
                         </div>
                         <div id="main-nav" class="stellarnav">
                             <ul id="nav" class="nav navbar-nav">
                                 <li><a href="/tech">Site</a></li>
-                                <li class="active"><a href="#login">Login</a></li>
+                                <li class="active"><a href="#">Notices</a></li>
+                                <li><a href="#logout">Users</a></li>
+                                <li><a href="#logout">Logout</a></li>
                             </ul>
                         </div>
                     </div>
@@ -97,44 +86,33 @@ if (!empty($_SESSION['start'])) {
     <!--END TOP AREA-->
 
 
-    <!--CONTACT US AREA-->
-    <section class="login-area padding-top gray-bg" id="login">
-        <div class="login-form-area">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
-                        <div class="login-form mb50 wow fadeIn">
-                            <h2>Login</h2>
-                            <form action="php/login-process.php" id="login-form" method="post">
-                                <div class="form-group" id="email-field">
-                                    <div class="form-input">
-                                        <input type="email" class="form-control" id="form-email" name="form-email" placeholder="Email.." required>
-                                    </div>
-                                </div>
-                                <div class="form-group" id="password-field">
-                                    <div class="form-input">
-                                        <input type="password" class="form-control" id="form-password" name="form-password" placeholder="Password..">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <button type="submit">Login</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
+
+    <!--SERVICE TOP AREA-->
+    <section class="about-area padding-100-50 gray-bg" id="features">
+        <div class="container">
+
+            <h1>TECH-HOLDS Notices</h1>
+
+            <div class="row actions-notice right col-md-4 col-lg-4 col-sm-12 col-xs-12" id="actions">
+                <button type="button" class="btn btn-success" id="btn-create-notice">Create a notice</button>
+            </div>
+
+            <div class="row col-md-12 col-lg-12 col-sm-12 col-xs-12" id="notices">
+
+                <!-- news be here  -->
 
             </div>
         </div>
     </section>
-    <!--CONTACT US AREA END-->
+    <!--SERVICE TOP AREA END-->
+
+
 
 
     <!--FOOER AREA-->
 
     <?php  include("footer.html");  ?>
     <!--FOOER AREA END-->
-
 
     <!--====== SCRIPTS JS ======-->
     <script src="js/vendor/jquery-1.12.4.min.js"></script>
@@ -155,7 +133,89 @@ if (!empty($_SESSION['start'])) {
 
     <!--===== ACTIVE JS=====-->
     <script src="js/main.js"></script>
-<!--    <script src="js/maps.active.js"></script>-->
+    <!--    <script src="js/maps.active.js"></script>-->
+
+
+    <script type="text/javascript">
+
+
+        var notices = document.getElementById("notices");
+
+        var newNotice = function(objNotice){
+            var newNotice = notices.appendChild(document.createElement("div"));
+            newNotice.setAttribute("class", "single-notice wow fadeIn");
+
+            var imagePath;
+            if(objNotice.image){
+                imagePath = 'uploads/'+objNotice.image;
+            }
+            else{
+                imagePath = 'img/slider/slide-1.jpg';
+            }
+
+            var image = newNotice.appendChild(document.createElement("img"));
+            image.setAttribute("src", imagePath);
+            image.setAttribute("alt", objNotice.title);
+
+            newNotice.appendChild(document.createElement("h3")).innerHTML = objNotice.title;
+            newNotice.appendChild(document.createElement("p")).innerHTML = objNotice.body;
+
+            var options = newNotice.appendChild(document.createElement("div"));
+            options.setAttribute("class", "notice-options");
+            var buttonShow = options.appendChild(document.createElement("button"));
+            buttonShow.setAttribute("class", "btn btn-info");
+            buttonShow.innerText = "Show";
+            var buttonEdit = options.appendChild(document.createElement("button"));
+            buttonEdit.setAttribute("class", "btn btn-warning");
+            buttonEdit.innerText = "Edit";
+            var buttonDelete = options.appendChild(document.createElement("button"));
+            buttonDelete.setAttribute("class", "btn btn-danger");
+            buttonDelete.innerText = "Delete";
+        };
+
+        $.ajax({
+            type: "GET",
+            url: "php/notices-process.php",
+            dataType:'JSON',
+            success: function(response){
+                console.log(response);
+                
+                for (objNotice of response){
+                    console.log(objNotice.title);
+
+                    newNotice(objNotice);
+                }
+                
+            }
+        });
+
+        document.getElementById("btn-create-notice").onclick = function () {
+            location.href='create-notice.php';
+        };
+
+        
+        // document.getElementById("comentar").onclick = function () {
+        //
+        //     var text = String(document.getElementById("comentario").value);
+        //
+        //     if(text != ""){
+        //         var newcomentario = comentarios.appendChild(document.createElement("div"));
+        //
+        //         newcomentario.setAttribute("class", "single-service text-center wow fadeIn");
+        //
+        //         var imageContent = newcomentario.appendChild(document.createElement("div"));
+        //         imageContent.setAttribute("class", "service-icon");
+        //         var image = imageContent.appendChild(document.createElement("div"));
+        //         image.setAttribute("class", "i fa fa-tools");
+        //
+        //         newcomentario.appendChild(document.createElement("h3")).innerHTML = text;
+        //     }
+        // };
+
+    </script>
+
+
+
 </body>
 
 </html>
