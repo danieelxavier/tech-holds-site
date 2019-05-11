@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST)) {
 //        $_SESSION['start'] = $myusername;
         echo "Welcome ".$row['name'];
 
-//        header("location: ../notices.php");
+//        header("location: ../console/notices.php");
     } else {
         $error = "Your Login Name or Password is invalid";
         echo $error;

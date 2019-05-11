@@ -28,24 +28,24 @@ if (empty($_SESSION['user_email'])) {
     <title>TECH-HOLDS - Quality and eficience in vessel cleaning</title>
 
     <!--====== FAVICON ICON =======-->
-    <link rel="shortcut icon" type="image/ico" href="img/favicon.png" />
+    <link rel="shortcut icon" type="image/ico" href="../img/favicon.png" />
 
     <!--====== STYLESHEETS ======-->
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/animate.css">
-    <link rel="stylesheet" href="css/stellarnav.min.css">
-    <link rel="stylesheet" href="css/progressbar.css">
-    <link rel="stylesheet" href="css/owl.carousel.css">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/animate.css">
+    <link rel="stylesheet" href="../css/stellarnav.min.css">
+    <link rel="stylesheet" href="../css/progressbar.css">
+    <link rel="stylesheet" href="../css/owl.carousel.css">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <!--<link href="css/font-awesome.min.css" rel="stylesheet">-->
 
 
     <!--====== MAIN STYLESHEETS ======-->
-    <link href="style.css" rel="stylesheet">
-    <link href="css/responsive.css" rel="stylesheet">
+    <link href="../style.css" rel="stylesheet">
+    <link href="../css/responsive.css" rel="stylesheet">
 
-    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+    <script src="../js/vendor/modernizr-2.8.3.min.js"></script>
     <!--[if lt IE 9]>
         <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
         <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -56,24 +56,24 @@ if (empty($_SESSION['user_email'])) {
 
 
     <!--====== SCRIPTS JS ======-->
-    <script src="js/vendor/jquery-1.12.4.min.js"></script>
-    <script src="js/vendor/bootstrap.min.js"></script>
+    <script src="../js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="../js/vendor/bootstrap.min.js"></script>
 
     <!--====== PLUGINS JS ======-->
-    <script src="js/vendor/jquery.easing.1.3.js"></script>
-    <script src="js/vendor/jquery-migrate-1.2.1.min.js"></script>
-    <script src="js/vendor/jquery.appear.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/stellar.js"></script>
-    <script src="js/imagesloaded.pkgd.min.js"></script>
-    <script src="js/isotope.pkgd.min.js"></script>
-    <script src="js/wow.min.js"></script>
-    <script src="js/stellarnav.min.js"></script>
-    <script src="js/create-notice-form.js"></script>
-    <script src="js/jquery.sticky.js"></script>
+    <script src="../js/vendor/jquery.easing.1.3.js"></script>
+    <script src="../js/vendor/jquery-migrate-1.2.1.min.js"></script>
+    <script src="../js/vendor/jquery.appear.js"></script>
+    <script src="../js/owl.carousel.min.js"></script>
+    <script src="../js/stellar.js"></script>
+    <script src="../js/imagesloaded.pkgd.min.js"></script>
+    <script src="../js/isotope.pkgd.min.js"></script>
+    <script src="../js/wow.min.js"></script>
+    <script src="../js/stellarnav.min.js"></script>
+    <script src="../js/create-notice-form.js"></script>
+    <script src="../js/jquery.sticky.js"></script>
 
     <!--===== ACTIVE JS=====-->
-    <script src="js/main.js"></script>
+    <script src="../js/main.js"></script>
     <!--    <script src="js/maps.active.js"></script>-->
 
 
@@ -100,7 +100,7 @@ if (empty($_SESSION['user_email'])) {
                 <nav class="navbar">
                     <div class="container">
                         <div class="navbar-header">
-                            <a href="#home" class="navbar-brand"><img src="img/logo.png" alt="Tech Holds Maritime Services Vessel Cleaning" width="160"></a>
+                            <a href="#home" class="navbar-brand"><img src="../img/logo.png" alt="Tech Holds Maritime Services Vessel Cleaning" width="160"></a>
 
                         </div>
                         <div id="main-nav" class="stellarnav">
@@ -171,7 +171,7 @@ if (empty($_SESSION['user_email'])) {
 
     <!--FOOER AREA-->
 
-    <?php  include("footer.html");  ?>
+    <?php  include("../footer.html");  ?>
     <!--FOOER AREA END-->
 
 
@@ -208,7 +208,7 @@ if (empty($_SESSION['user_email'])) {
                 type: "POST",
                 enctype: 'multipart/form-data',
                 data: formdata,
-                url: "php/create-notice-process.php",
+                url: "../php/create-notice-process.php",
                 processData: false,
                 contentType:false,
                 dataType:"json",

@@ -28,25 +28,25 @@ if (empty($_SESSION['user_email'])) {
     <title>TECH-HOLDS Admin - Notices</title>
 
     <!--====== FAVICON ICON =======-->
-    <link rel="shortcut icon" type="image/ico" href="img/favicon.png" />
+    <link rel="shortcut icon" type="image/ico" href="../img/favicon.png" />
 
     <!--====== STYLESHEETS ======-->
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/animate.css">
-    <link rel="stylesheet" href="css/stellarnav.min.css">
-    <link rel="stylesheet" href="css/progressbar.css">
-    <link rel="stylesheet" href="css/loader-spinner.css">
-    <link rel="stylesheet" href="css/owl.carousel.css">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/animate.css">
+    <link rel="stylesheet" href="../css/stellarnav.min.css">
+    <link rel="stylesheet" href="../css/progressbar.css">
+    <link rel="stylesheet" href="../css/loader-spinner.css">
+    <link rel="stylesheet" href="../css/owl.carousel.css">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <!--<link href="css/font-awesome.min.css" rel="stylesheet">-->
 
 
     <!--====== MAIN STYLESHEETS ======-->
-    <link href="style.css" rel="stylesheet">
-    <link href="css/responsive.css" rel="stylesheet">
+    <link href="../style.css" rel="stylesheet">
+    <link href="../css/responsive.css" rel="stylesheet">
 
-    <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+    <script src="../js/vendor/modernizr-2.8.3.min.js"></script>
     <!--[if lt IE 9]>
         <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
         <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -77,7 +77,7 @@ if (empty($_SESSION['user_email'])) {
                 <nav class="navbar">
                     <div class="container">
                         <div class="navbar-header">
-                            <a href="#home" class="navbar-brand"><img src="img/logo.png" alt="Tech Holds Maritime Services Vessel Cleaning" width="160"></a>
+                            <a href="#home" class="navbar-brand"><img src="../img/logo.png" alt="Tech Holds Maritime Services Vessel Cleaning" width="160"></a>
 
                         </div>
                         <div id="main-nav" class="stellarnav">
@@ -85,7 +85,7 @@ if (empty($_SESSION['user_email'])) {
                                 <li><a href="/tech">Site</a></li>
                                 <li class="active"><a href="#">Notices</a></li>
                                 <li><a href="#logout">Users</a></li>
-                                <li><a href="php/logout-process.php">Logout</a></li>
+                                <li><a href="../php/logout-process.php">Logout</a></li>
                             </ul>
                         </div>
                     </div>
@@ -130,28 +130,28 @@ if (empty($_SESSION['user_email'])) {
 
     <!--FOOER AREA-->
 
-    <?php  include("footer.html");  ?>
+    <?php  include("../footer.html");  ?>
     <!--FOOER AREA END-->
 
     <!--====== SCRIPTS JS ======-->
-    <script src="js/vendor/jquery-1.12.4.min.js"></script>
-    <script src="js/vendor/bootstrap.min.js"></script>
+    <script src="../js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="../js/vendor/bootstrap.min.js"></script>
 
     <!--====== PLUGINS JS ======-->
-    <script src="js/vendor/jquery.easing.1.3.js"></script>
-    <script src="js/vendor/jquery-migrate-1.2.1.min.js"></script>
-    <script src="js/vendor/jquery.appear.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/stellar.js"></script>
-    <script src="js/imagesloaded.pkgd.min.js"></script>
-    <script src="js/isotope.pkgd.min.js"></script>
-    <script src="js/wow.min.js"></script>
-    <script src="js/stellarnav.min.js"></script>
-    <script src="js/contact-form.js"></script>
-    <script src="js/jquery.sticky.js"></script>
+    <script src="../js/vendor/jquery.easing.1.3.js"></script>
+    <script src="../js/vendor/jquery-migrate-1.2.1.min.js"></script>
+    <script src="../js/vendor/jquery.appear.js"></script>
+    <script src="../js/owl.carousel.min.js"></script>
+    <script src="../js/stellar.js"></script>
+    <script src="../js/imagesloaded.pkgd.min.js"></script>
+    <script src="../js/isotope.pkgd.min.js"></script>
+    <script src="../js/wow.min.js"></script>
+    <script src="../js/stellarnav.min.js"></script>
+    <script src="../js/contact-form.js"></script>
+    <script src="../js/jquery.sticky.js"></script>
 
     <!--===== ACTIVE JS=====-->
-    <script src="js/main.js"></script>
+    <script src="../js/main.js"></script>
     <!--    <script src="js/maps.active.js"></script>-->
 
 
@@ -169,10 +169,10 @@ if (empty($_SESSION['user_email'])) {
 
             var imagePath;
             if(objNotice.image){
-                imagePath = 'uploads/'+objNotice.image;
+                imagePath = '../uploads/'+objNotice.image;
             }
             else{
-                imagePath = 'img/slider/slide-1.jpg';
+                imagePath = '../img/slider/slide-1.jpg';
             }
 
             var image = newNotice.appendChild(document.createElement("img"));
@@ -197,7 +197,8 @@ if (empty($_SESSION['user_email'])) {
             var options = newNotice.appendChild(document.createElement("div"));
             options.setAttribute("class", "notice-options");
             var buttonShow = options.appendChild(document.createElement("button"));
-            buttonShow.setAttribute("class", "btn btn-info");
+            buttonShow.setAttribute("class", "btn-show-link btn btn-info");
+            buttonShow.setAttribute("id", "#show_"+objNotice.id);
             buttonShow.innerText = "Show";
             var buttonEdit = options.appendChild(document.createElement("button"));
             buttonEdit.setAttribute("class", "btn btn-warning");
@@ -211,7 +212,7 @@ if (empty($_SESSION['user_email'])) {
 
             $.ajax({
                 type: "GET",
-                url: "php/notices-process.php",
+                url: "../php/notices-process.php",
                 data: { "offset": offset,
                     "limit" : limit },
                 dataType:'JSON',
@@ -230,6 +231,10 @@ if (empty($_SESSION['user_email'])) {
                         newNotice(objNotice);
                     }
 
+                    $("button.btn-show-link").click(function() {
+                        location.href='notice.php';
+                    });
+
                 }
             });
 
@@ -247,6 +252,7 @@ if (empty($_SESSION['user_email'])) {
             $('#load-spinner').show();
             loadNoticesByDB(limitNotices, offsetNotices);
         });
+
 
         function timeConverter(UNIX_timestamp){
             var a = new Date(UNIX_timestamp * 1000);
