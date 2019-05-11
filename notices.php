@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+if (empty($_SESSION['user_email'])) {
+
+    header('Location: index.php');
+    exit();
+}
+?>
+
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -25,6 +35,7 @@
     <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="css/stellarnav.min.css">
     <link rel="stylesheet" href="css/progressbar.css">
+    <link rel="stylesheet" href="css/loader-spinner.css">
     <link rel="stylesheet" href="css/owl.carousel.css">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
@@ -74,7 +85,7 @@
                                 <li><a href="/tech">Site</a></li>
                                 <li class="active"><a href="#">Notices</a></li>
                                 <li><a href="#logout">Users</a></li>
-                                <li><a href="#logout">Logout</a></li>
+                                <li><a href="php/logout-process.php">Logout</a></li>
                             </ul>
                         </div>
                     </div>
@@ -91,16 +102,20 @@
     <section class="about-area padding-100-50 gray-bg" id="features">
         <div class="container">
 
-            <h1>TECH-HOLDS Notices</h1>
+            <h1 class="col-md-12 col-lg-12 col-sm-12 col-xs-12">TECH-HOLDS Notices</h1>
 
-            <div class="row actions-notice right col-md-4 col-lg-4 col-sm-12 col-xs-12" id="actions">
+            <div class="actions-notice right col-md-4 col-lg-4 col-sm-12 col-xs-12" id="actions">
                 <button type="button" class="btn btn-success" id="btn-create-notice">Create a notice</button>
             </div>
 
-            <div class="row col-md-12 col-lg-12 col-sm-12 col-xs-12" id="notices">
+            <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" id="notices">
 
                 <!-- news be here  -->
 
+            </div>
+
+            <div class="center load-notices-spinner" id="load-spinner">
+                <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
             </div>
 
             <div class="row area-load-more center col-md-12 col-lg-12 col-sm-12 col-xs-12" id="load-more">
@@ -165,6 +180,18 @@
             image.setAttribute("alt", objNotice.title);
 
             newNotice.appendChild(document.createElement("h3")).innerHTML = objNotice.title;
+
+            // var dateTim = new Date(parseInt(objNotice.modifiedDate));
+            // console.log(parseInt(objNotice.modifiedDate)*1000);
+            // var formatted_date = dateTim.getDate() + "/" + dateTim.getMonth() + 1 + "/" + dateTim.getFullYear();
+
+            var date = newNotice.appendChild(document.createElement("div"));
+            var author = newNotice.appendChild(document.createElement("div"));
+            date.setAttribute("class", "text-date");
+            date.innerHTML = "<b>Last modified: </b>"+timeConverter(parseInt(objNotice.modifiedDate));
+            author.setAttribute("class", "text-author");
+            author.innerHTML = "<b>Author: </b>"+objNotice.author;
+
             newNotice.appendChild(document.createElement("p")).innerHTML = objNotice.body;
 
             var options = newNotice.appendChild(document.createElement("div"));
@@ -191,12 +218,14 @@
                 success: function(response){
                     console.log(response);
 
+                    $('#load-spinner').hide();
+
                     if(response.length < limitNotices){
                         $("#btn-load-more").hide();
                     }
 
                     for (objNotice of response){
-                        console.log(objNotice.title);
+                        // console.log(objNotice.title);
 
                         newNotice(objNotice);
                     }
@@ -206,6 +235,7 @@
 
         };
 
+
         loadNoticesByDB(limitNotices, offsetNotices);
 
         $("#btn-create-notice").click( function () {
@@ -214,8 +244,23 @@
 
         $("#btn-load-more").click(function () {
             offsetNotices += 10;
+            $('#load-spinner').show();
             loadNoticesByDB(limitNotices, offsetNotices);
         });
+
+        function timeConverter(UNIX_timestamp){
+            var a = new Date(UNIX_timestamp * 1000);
+            var months = ['01','02','03','04','05','06','07','08','09','10','11','12'];
+            var year = a.getFullYear();
+            var month = months[a.getMonth()];
+            var date = a.getDate();
+            var hour = a.getHours();
+            var min = a.getMinutes();
+            var sec = a.getSeconds();
+            var time = date + '/' + month + '/' + year + ' - ' + hour + ':' + min ;
+            return time;
+        }
+
 
 
     </script>

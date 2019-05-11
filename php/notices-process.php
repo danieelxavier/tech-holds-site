@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
             "title" => $title,
             "body" => $body,
             "author" => $author,
-            "date" => $date,
+            "modifiedDate" => $date,
             "image" => $image);
     }
 

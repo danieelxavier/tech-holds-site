@@ -331,16 +331,25 @@
 
     .single-notice h3{
         float: none;
+        font-size: large;
         width: 100%;
         max-width: none;
-        margin: 0;
+        margin: 5px 0 0 0;
 
     }
 
     .single-notice p {
         float: none;
-        margin: 5px;
         width: 100%;
+        margin: 15px 0 10px 0;
+    }
+
+    .text-date{
+        margin: 0;
+    }
+
+    .text-author{
+        margin: 0;
     }
 
     .notice-options{

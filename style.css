@@ -661,6 +661,10 @@ ul#nav li ul a,
     4. NOTICES SCREEN AREA
 ---------------------------------*/
 
+.load-notices-spinner{
+    margin: 20px 0;
+}
+
 .single-notice {
     /*width: 50%;*/
     background: #fff;
@@ -681,17 +685,28 @@ ul#nav li ul a,
 
 .single-notice h3{
     float: left;
-    width: auto;
-    max-width: 78%;
+    width: 78%;
+    font-size: large;
     margin-left: 2%;
+    margin-bottom: 5px;
 
 }
+.text-date{
+    color: #9d9d9d;
+    margin-left: 22%;
+}
+
+.text-author{
+    margin-left: 22%;
+    color: #9d9d9d;
+    margin-bottom: 20px;
+}
+
 
 .single-notice p {
     float: left;
-    margin-left: 2%;
     width: 78%;
-
+    margin-left: 2%;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;

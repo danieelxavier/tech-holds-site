@@ -1,13 +1,12 @@
 <?php
 session_start();
 
-if (!empty($_SESSION['start'])) {
+if (!empty($_SESSION['user_email'])) {
 
-    header('Location: notices.php');
+    header('Location: index.php');
     exit();
 }
 ?>
-
 
 
 <!doctype html>

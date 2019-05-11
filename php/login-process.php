@@ -7,7 +7,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST)) {
     $login = stripcslashes($login);
     $passcode = stripcslashes($passcode);
 
-    $passcode = 'e8d95a51f3af4a3b134bf6bb680a213a';
+    $passcode = md5($passcode, false);
+
+    echo $passcode;
 
     $db = mysqli_connect("localhost", "root", "", "tech-holds-site");
     //excessão de disponibilidade do servidor do banco
@@ -29,11 +31,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST)) {
 
     // If result matched $myusername and $mypassword, table row must be 1 row
 
+
     if ($count == 1) {
-//        $_SESSION['start'] = $myusername;
+        $_SESSION['user_email'] = $myusername;
+        $_SESSION['user_name'] = $row['name'];
+        $_SESSION['user_id'] = $row['id'];
         echo "Welcome ".$row['name'];
 
-//        header("location: ../notices.php");
+        header("location: ../notices.php");
     } else {
         $error = "Your Login Name or Password is invalid";
         echo $error;

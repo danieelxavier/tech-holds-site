@@ -2,6 +2,8 @@
 
 //    echo shell_exec("whoami")."<br><br>";
 
+session_start();
+
 $date = new DateTime(null);
 $currentTime = $date->getTimestamp();
 
@@ -84,12 +86,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST)) {
 
     $title = $_POST["form-title"];
     $body = $_POST["form-body"];
-    $author = 1;
+    $author = $_SESSION['user_id'];
+
+    echo $author."-------------";
 
     $title = stripcslashes($title);
     $body = stripcslashes($body);
 
     $res_message = "";
+    $res_status = "";
 
     $db = mysqli_connect("localhost", "root", "", "tech-holds-site");
     //excessão de disponibilidade do servidor do banco
@@ -115,14 +120,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST)) {
 
     if(mysqli_query($db, $sql)){
         $res_message = "Records inserted successfully. Obs: ".$message_image;
+        $res_status = "success";
     } else{
         $res_message = "ERROR: Could not able to execute $sql. " . mysqli_error($db);
+        $res_status = "error";
     }
 
 // Close connection
     mysqli_close($db);
 
-    $res = array('status'=>"success", "message" => $res_message);
+    $res = array('status'=>$res_status, "message" => $res_message);
     echo json_encode($res);
 
 }
