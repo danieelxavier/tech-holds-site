@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="css/animate.css">
     <link rel="stylesheet" href="css/stellarnav.min.css">
     <link rel="stylesheet" href="css/progressbar.css">
+    <link rel="stylesheet" href="css/loader-spinner.css">
     <link rel="stylesheet" href="css/owl.carousel.css">
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
@@ -274,73 +275,73 @@
     <!--ABOUT AREA END-->
 
     <!--SERVICE AREA-->
-    <section class="service-area section-padding" id="services">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2 col-sm-12 col-xs-12">
-                    <div class="area-title text-center wow fadeIn">
-                        <h2>Services We Provides</h2>
-                        <p>The proposal of TECH-HOLDS Maritime Services is the quality of products and services and its big difference it's
-                            a solid relationship with all suppliers. We are an efficient, continuous company; committed with our customers
-                            and business partners.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row flex-v-center">
-                <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
-                    <div class="single-service right wow fadeIn">
-                        <div class="service-icon">
-                            <div class="i fa fa-rocket"></div>
-                        </div>
-                        <h4>Service 1</h4>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                    </div>
-                    <div class="single-service right wow fadeIn">
-                        <div class="service-icon">
-                            <div class="i fa fa-camera"></div>
-                        </div>
-                        <h4>Service 2</h4>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                    </div>
-                    <div class="single-service right mbzero wow fadeIn">
-                        <div class="service-icon">
-                            <div class="i fa fa-desktop"></div>
-                        </div>
-                        <h4>Service 3</h4>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                    </div>
-                </div>
-                <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12 hidden-sm">
-                    <div class="service-image text-center wow fadeIn">
-                        <img src="img/service/anchor-boat.jpg" alt="">
-                    </div>
-                </div>
-                <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
-                    <div class="single-service left wow fadeIn">
-                        <div class="service-icon">
-                            <div class="i fa fa-cog"></div>
-                        </div>
-                        <h4>Service 4</h4>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                    </div>
-                    <div class="single-service left wow fadeIn">
-                        <div class="service-icon">
-                            <div class="i fa fa-bullhorn"></div>
-                        </div>
-                        <h4>Service 5</h4>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                    </div>
-                    <div class="single-service left mbzero wow fadeIn">
-                        <div class="service-icon">
-                            <div class="i fa fa-cog"></div>
-                        </div>
-                        <h4>24/7 Support</h4>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+<!--    <section class="service-area section-padding" id="services">-->
+<!--        <div class="container">-->
+<!--            <div class="row">-->
+<!--                <div class="col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2 col-sm-12 col-xs-12">-->
+<!--                    <div class="area-title text-center wow fadeIn">-->
+<!--                        <h2>Services We Provides</h2>-->
+<!--                        <p>The proposal of TECH-HOLDS Maritime Services is the quality of products and services and its big difference it's-->
+<!--                            a solid relationship with all suppliers. We are an efficient, continuous company; committed with our customers-->
+<!--                            and business partners.</p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="row flex-v-center">-->
+<!--                <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">-->
+<!--                    <div class="single-service right wow fadeIn">-->
+<!--                        <div class="service-icon">-->
+<!--                            <div class="i fa fa-rocket"></div>-->
+<!--                        </div>-->
+<!--                        <h4>Service 1</h4>-->
+<!--                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>-->
+<!--                    </div>-->
+<!--                    <div class="single-service right wow fadeIn">-->
+<!--                        <div class="service-icon">-->
+<!--                            <div class="i fa fa-camera"></div>-->
+<!--                        </div>-->
+<!--                        <h4>Service 2</h4>-->
+<!--                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>-->
+<!--                    </div>-->
+<!--                    <div class="single-service right mbzero wow fadeIn">-->
+<!--                        <div class="service-icon">-->
+<!--                            <div class="i fa fa-desktop"></div>-->
+<!--                        </div>-->
+<!--                        <h4>Service 3</h4>-->
+<!--                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12 hidden-sm">-->
+<!--                    <div class="service-image text-center wow fadeIn">-->
+<!--                        <img src="img/service/anchor-boat.jpg" alt="">-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">-->
+<!--                    <div class="single-service left wow fadeIn">-->
+<!--                        <div class="service-icon">-->
+<!--                            <div class="i fa fa-cog"></div>-->
+<!--                        </div>-->
+<!--                        <h4>Service 4</h4>-->
+<!--                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>-->
+<!--                    </div>-->
+<!--                    <div class="single-service left wow fadeIn">-->
+<!--                        <div class="service-icon">-->
+<!--                            <div class="i fa fa-bullhorn"></div>-->
+<!--                        </div>-->
+<!--                        <h4>Service 5</h4>-->
+<!--                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>-->
+<!--                    </div>-->
+<!--                    <div class="single-service left mbzero wow fadeIn">-->
+<!--                        <div class="service-icon">-->
+<!--                            <div class="i fa fa-cog"></div>-->
+<!--                        </div>-->
+<!--                        <h4>24/7 Support</h4>-->
+<!--                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </section>-->
     <!--SERVICE AREA END-->
 
 
@@ -447,7 +448,7 @@
                     <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                         <div class="contact-form mb50 wow fadeIn">
                             <h2>Send Message</h2>
-                            <form action="php/contact-process.php" id="contact-form" method="post">
+                            <form action="php/mail-contact-process.php" id="contact-form" method="post">
                                 <div class="form-group" id="name-field">
                                     <div class="form-input">
                                         <input type="text" class="form-control" id="form-name" name="form-name" placeholder="Name.." required>
@@ -468,10 +469,14 @@
                                         <textarea class="form-control" rows="6" id="form-message" name="form-message" placeholder="Your Message Here..." required></textarea>
                                     </div>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group" id="submit-button">
                                     <button type="submit">Send Message</button>
                                 </div>
                             </form>
+
+                            <div class="center load-notices-spinner" style="display: none" id="load-spinner">
+                                <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+                            </div>
                         </div>
                     </div>
                 </div>

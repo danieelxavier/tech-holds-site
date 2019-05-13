@@ -8,7 +8,6 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name    = stripslashes(trim($_POST['name']));
     $email   = stripslashes(trim($_POST['email']));
     $phone = stripslashes(trim($_POST['phone']));
-    $subject = stripslashes(trim($_POST['subject']));
     $message = stripslashes(trim($_POST['message']));
     if (empty($name)) {
         $errors['name'] = 'Name is required.';
@@ -27,7 +26,7 @@ if($_SERVER['REQUEST_METHOD'] === 'POST') {
         $data['success'] = false;
         $data['errors']  = $errors;
     } else {
-        $subject = "$subjectPrefix $subject";
+        $subject = "Contact from TECH-HOLDS site";
         $body    = '
             <strong>Name: </strong>'.$name.'<br />
             <strong>Email: </strong>'.$email.'<br />

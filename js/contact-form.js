@@ -21,6 +21,9 @@ Ajax Contact Form
         $('.form-group').removeClass('has-error');
         $('.help-block').remove();
 
+        $('#load-spinner').show();
+        $('#submit-button').hide();
+
         // get the form data
         var formData = {
             'name' : $('input[name="form-name"]').val(),
@@ -32,11 +35,14 @@ Ajax Contact Form
         // process the form
         $.ajax({
             type : 'POST',
-            url  : 'php/contact-process.php',
+            url  : 'php/mail-contact-process.php',
             data : formData,
             dataType : 'json',
             encode : true
         }).done(function (data) {
+
+            $('#load-spinner').hide();
+
             // handle errors
             if (!data.success) {
                 if (data.errors.name) {
@@ -58,13 +64,16 @@ Ajax Contact Form
                     $('#message-field').addClass('has-error');
                     $('#message-field').find('.form-input').append('<span class="help-block">' + data.errors.message + '</span>');
                 }
+                $('#submit-button').show();
             } else {
                 // display success message
                 $form.html('<div class="alert alert-success">' + data.message + '</div>');
             }
         }).fail(function (data) {
             // for debug
-            console.log(data)
+            console.log(data);
+            $('#load-spinner').hide();
+            $('#submit-button').show();
         });
 
         e.preventDefault();

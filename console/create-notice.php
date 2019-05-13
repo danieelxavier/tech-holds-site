@@ -119,6 +119,28 @@ if (empty($_SESSION['user_email'])) {
     </header>
     <!--END TOP AREA-->
 
+    <div class="modal show" id="myModal" role="dialog">
+        <div class="modal-dialog">
+
+            <div class="center load-notices-spinner" id="load-spinner">
+                <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+            </div>
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Modal Header</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Some text in the modal.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" id="sss" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
 
 
     <!--SERVICE TOP AREA-->
@@ -157,6 +179,7 @@ if (empty($_SESSION['user_email'])) {
                                     <button type="button" id="release-notice">Release</button>
                                 </div>
 
+
                             </form>
 
                         </div>
@@ -168,6 +191,16 @@ if (empty($_SESSION['user_email'])) {
     </section>
     <!--SERVICE TOP AREA END-->
 
+<!--    <div>-->
+<!--        <!-- Trigger the modal with a button -->-->
+<!--        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>-->
+
+        <!-- Modal -->
+
+
+<!--    </div>-->
+
+
 
     <!--FOOER AREA-->
 
@@ -178,6 +211,15 @@ if (empty($_SESSION['user_email'])) {
 
 
     <script type="text/javascript">
+
+        // $(window).on('load',function(){
+        //     $('#myModal').modal('show');
+        // });
+
+        $('#sss').click(function () {
+            console.log("asdasdasdasdsa");
+            $('#myModal').hide();
+        });
 
 
         $('#release-notice').click(function(){
@@ -194,7 +236,7 @@ if (empty($_SESSION['user_email'])) {
             }
 
             var title = $('#form-title').val();
-            var body = $('#form-body').val()
+            var body = $('#form-body').val();
 
             formdata.append("form-title", title);
             formdata.append("form-body", body);

@@ -114,9 +114,11 @@ if (empty($_SESSION['user_email'])) {
 
             </div>
 
+
             <div class="center load-notices-spinner" id="load-spinner">
                 <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
             </div>
+
 
             <div class="row area-load-more center col-md-12 col-lg-12 col-sm-12 col-xs-12" id="load-more">
                 <button type="button" class="btn btn-info btn-load-more" id="btn-load-more">Load more...</button>
@@ -263,7 +265,7 @@ if (empty($_SESSION['user_email'])) {
             var hour = a.getHours();
             var min = a.getMinutes();
             var sec = a.getSeconds();
-            var time = date + '/' + month + '/' + year + ' - ' + hour + ':' + min ;
+            var time = date.toString().padStart(2,0) + '/' + month + '/' + year + ' - ' + hour.toString().padStart(2,0) + ':' + min.toString().padStart(2,0) ;
             return time;
         }
 
