@@ -357,7 +357,7 @@ a.readmore:hover {
 }
 
 .promo-area .area-bg {
-    background: rgba(0, 0, 0, 0) url("img/promo/vessel.jpg") no-repeat scroll center center / cover;
+    background: rgba(0, 0, 0, 0) url("img/site/ship.jpg") no-repeat scroll center center / cover;
 }
 
 /*--------------------------
@@ -547,15 +547,15 @@ ul#nav li ul a,
 }
 
 .slide-bg-one {
-    background: rgba(0, 0, 0, 0) url("img/slider/slide-1.jpg") no-repeat scroll center center / cover;
+    background: rgba(0, 0, 0, 0) url("img/site/vessel-cleaning.jpg") no-repeat scroll center center / cover;
 }
 
 .slide-bg-two {
-    background: rgba(0, 0, 0, 0) url("img/slider/slide_1.jpg") no-repeat scroll center center / cover;
+    background: rgba(0, 0, 0, 0) url("img/site/ship-above.jpg") no-repeat scroll center center / cover;
 }
 
 .slide-bg-three {
-    background: rgba(0, 0, 0, 0) url("img/slider/slide_2.jpg") no-repeat scroll center center / cover;
+    background: rgba(0, 0, 0, 0) url("img/site/deck-ship-2.jpg") no-repeat scroll center center / cover;
 }
 
 .welcome-area {

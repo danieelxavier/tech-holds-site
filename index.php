@@ -11,8 +11,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Creative Portfolio & Agency Template is a simple Smooth Personal Portfolio and Agency Based Template" />
-    <meta name="keywords" content="Personal, Portfolio, Agency, Onepage, Html, Business" />
+    <meta name="description" content="We are TECH-HOLDS Maritime Services,specialized in CHolds' Preparation for the Load of Grains at the Grain Terminals." />
+    <meta name="keywords" content="Maritime, Services, Vessel cleaning, Maritime services, Quality" />
 
     <!--====== TITLE TAG ======-->
     <title>TECH-HOLDS - Quality and eficience in vessel cleaning</title>
@@ -67,16 +67,14 @@
                 <nav class="navbar">
                     <div class="container">
                         <div class="navbar-header">
-                            <h1>
-                                <a href="#home" class="navbar-brand"><img src="img/logo.png" alt="Tech Holds Maritime Services Vessel Cleaning" width="160"></a>
-                            </h1>
+                            <a href="#home" class="navbar-brand"><img src="img/logo.png" alt="Tech Holds Maritime Services Vessel Cleaning" width="160"></a>
                         </div>
                         <div id="main-nav" class="stellarnav">
                             <ul id="nav" class="nav navbar-nav">
                                 <li class="active"><a href="#home">home</a></li>
                                 <li><a href="#features">Features</a></li>
                                 <li><a href="#about">About us</a></li>
-                                <li><a href="#services">Services</a></li>
+                                <li><a href="#services">Where</a></li>
                                 <li><a href="#team">Team</a></li>
                                 <li><a href="#contact">Contact</a></li>
                             </ul>
@@ -99,12 +97,12 @@
                         <div class="col-md-7 col-lg-6 col-sm-12 col-xs-12">
                             <div class="welcome-text">
                                 <h4>We are</h4>
-                                <h2>QUALITY AND EFICIENCE IN VESSEL CLEANING</h2>
+                                <h1>QUALITY AND EFICIENCE IN VESSEL CLEANING</h1>
                                 <p>The proposal of TECH-HOLDS Maritime Services is the quality of products
                                     and services and its big difference it's a solid relationship with all
                                     suppliers.</p>
                                 <div class="home-button">
-                                    <a href="#">See more</a>
+                                    <a href="#features">See more</a>
                                 </div>
                             </div>
                         </div>
@@ -225,7 +223,7 @@
                 <div class="col-md-3 col-lg-3 col-sm-12 col-xs-12">
                     <div class="about-content mb50 wow fadeIn">
                         <div class="company-image wow fadeIn">
-                            <img src="img/intro/tech.png" width="200" alt="">
+                            <img src="img/site/tech-holds.png" width="200" alt="">
                         </div>
                     </div>
                 </div>
@@ -275,73 +273,60 @@
     <!--ABOUT AREA END-->
 
     <!--SERVICE AREA-->
-<!--    <section class="service-area section-padding" id="services">-->
-<!--        <div class="container">-->
-<!--            <div class="row">-->
-<!--                <div class="col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2 col-sm-12 col-xs-12">-->
-<!--                    <div class="area-title text-center wow fadeIn">-->
-<!--                        <h2>Services We Provides</h2>-->
-<!--                        <p>The proposal of TECH-HOLDS Maritime Services is the quality of products and services and its big difference it's-->
-<!--                            a solid relationship with all suppliers. We are an efficient, continuous company; committed with our customers-->
-<!--                            and business partners.</p>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div class="row flex-v-center">-->
-<!--                <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">-->
-<!--                    <div class="single-service right wow fadeIn">-->
-<!--                        <div class="service-icon">-->
-<!--                            <div class="i fa fa-rocket"></div>-->
-<!--                        </div>-->
-<!--                        <h4>Service 1</h4>-->
+    <section class="service-area section-padding" id="services">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2 col-sm-12 col-xs-12">
+                    <div class="area-title text-center wow fadeIn">
+                        <h2>Where we operate</h2>
+                        <p>The proposal of TECH-HOLDS Maritime Services is the quality of products and services and its big difference it's
+                            a solid relationship with all suppliers. We are an efficient, continuous company; committed with our customers
+                            and business partners.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row flex-v-center">
+                <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
+                    <div class="single-service right wow fadeIn">
+                        <div class="service-icon">
+                            <div class="i fa fa-map-marker"></div>
+                        </div>
+                        <h4>Manaus-AM <br> Brazil</h4>
+                        <!--                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>-->
+                    </div>
+                    <div class="single-service right wow fadeIn">
+                        <div class="service-icon">
+                            <div class="i fa fa-map-marker"></div>
+                        </div>
+                        <h4>Itacoatiara-AM <br> Brazil</h4>
+                        <!--                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>-->
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12 hidden-sm">
+                    <div class="service-image text-center wow fadeIn">
+                        <img src="img/site/deck-ship.jpg" alt="">
+                    </div>
+                </div>
+                <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">
+                    <div class="single-service left wow fadeIn">
+                        <div class="service-icon">
+                            <div class="i fa fa-map-marker"></div>
+                        </div>
+                        <h4>Santarém-PA <br> Brazil</h4>
 <!--                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>-->
-<!--                    </div>-->
-<!--                    <div class="single-service right wow fadeIn">-->
-<!--                        <div class="service-icon">-->
-<!--                            <div class="i fa fa-camera"></div>-->
-<!--                        </div>-->
-<!--                        <h4>Service 2</h4>-->
+                    </div>
+                    <div class="single-service left wow fadeIn">
+                        <div class="service-icon">
+                            <div class="i fa fa-map-marker"></div>
+                        </div>
+                        <h4>Mosqueiro-PA <br> Brazil</h4>
 <!--                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>-->
-<!--                    </div>-->
-<!--                    <div class="single-service right mbzero wow fadeIn">-->
-<!--                        <div class="service-icon">-->
-<!--                            <div class="i fa fa-desktop"></div>-->
-<!--                        </div>-->
-<!--                        <h4>Service 3</h4>-->
-<!--                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12 hidden-sm">-->
-<!--                    <div class="service-image text-center wow fadeIn">-->
-<!--                        <img src="img/service/anchor-boat.jpg" alt="">-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="col-md-4 col-lg-4 col-sm-6 col-xs-12">-->
-<!--                    <div class="single-service left wow fadeIn">-->
-<!--                        <div class="service-icon">-->
-<!--                            <div class="i fa fa-cog"></div>-->
-<!--                        </div>-->
-<!--                        <h4>Service 4</h4>-->
-<!--                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>-->
-<!--                    </div>-->
-<!--                    <div class="single-service left wow fadeIn">-->
-<!--                        <div class="service-icon">-->
-<!--                            <div class="i fa fa-bullhorn"></div>-->
-<!--                        </div>-->
-<!--                        <h4>Service 5</h4>-->
-<!--                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>-->
-<!--                    </div>-->
-<!--                    <div class="single-service left mbzero wow fadeIn">-->
-<!--                        <div class="service-icon">-->
-<!--                            <div class="i fa fa-cog"></div>-->
-<!--                        </div>-->
-<!--                        <h4>24/7 Support</h4>-->
-<!--                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </section>-->
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
     <!--SERVICE AREA END-->
 
 
@@ -375,7 +360,7 @@
             <div class="row flex-v-center">
                 <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
                     <div class="intro-image wow fadeIn">
-                        <img src="img/intro/intro-bg.jpg" alt="">
+                        <img src="img/site/workers-in-deck-ship.jpg" alt="">
                     </div>
                 </div>
                 <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">

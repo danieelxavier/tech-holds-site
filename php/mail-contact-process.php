@@ -49,8 +49,11 @@
 
             //Recipients
             $mail->setFrom($email, $name);
-            $mail->addAddress('danieelxavier@gmail.com', 'Alpha Facility');     // Add a recipient
-            //  $mail->addAddress('operational.manager@alphafacilitygroup.com', 'Alpha Facility');     // Add a recipient
+            $mail->addAddress('tech-holds@tech-holds.com', 'TECH-HOLDS');     // Add a recipient
+            $mail->addAddress('rogerio.alves@tech-holds.com', 'Rogério - TECH-HOLDS');     // Add a recipient
+            $mail->addAddress('david.cabral@tech-holds.com', 'David - TECH-HOLDS');     // Add a recipient
+            $mail->addAddress('luciana.viegas@tech-holds.com', 'Luciana - TECH-HOLDS');     // Add a recipient
+            $mail->addAddress('rsa.techholds@gmail.com', 'TECH-HOLDS');     // Add a recipient
             $mail->addReplyTo($email, $name);
             // $mail->addCC('cc@example.com');
             // $mail->addBCC('bcc@example.com');
