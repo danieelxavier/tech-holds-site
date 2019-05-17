@@ -383,6 +383,91 @@
     </section>
     <!--INFO AREA END-->
 
+    <!--BLOG AND FEED AREA-->
+    <section class="blog-and-feed-area section-padding white-gray-bg" id="news">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2 col-sm-12 col-xs-12">
+                    <div class="area-title text-center wow fadeIn">
+                        <h2>Our Latest News</h2>
+                        <p>Check out our latest news and stay within the activities that TECH-HOLDS plays</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12 hidden-sm">
+                    <div class="feed-widget twitter-feed mb50 wow fadeIn">
+                        <h4>Twitter Feed</h4>
+                        <ul id="tweets-list">
+
+                            <!-- tweets be here  -->
+<!--                            <li>-->
+<!--                                <div class="twitter-icon"><i class="fa fa-twitter"></i></div>-->
+<!--                                <a href="#">@_sumonrahman</a>: Lorem ipsum dolors sit amets sums consectetur adipicing elit sed do eiusmod eset tempor incididunt ut labore.-->
+<!--                            </li>-->
+
+                        </ul>
+                    </div>
+                </div>
+
+<!--                <div class="col-md-6 col-lg-4 col-sm-6 col-xs-12">-->
+<!--                    <div class="feed-widget blog-feed mb50 wow fadeIn">-->
+<!--                        <h4>Blog Feed</h4>-->
+<!--                        <div class="blog-list">-->
+<!--                            <div class="single-blog">-->
+<!--                                <div class="blog-thumb">-->
+<!--                                    <img src="img/blog/blog-1.jpg" alt="">-->
+<!--                                </div>-->
+<!--                                <div class="blog-details">-->
+<!--                                    <h4><a href="#">The User Experience</a></h4>-->
+<!--                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sagittis... <a href="#">Read More</a></p>-->
+<!--                                    <p class="blog-meta">Posted by <a href="#">admin</a> at <a href="#">04 Feb, 2017</a></p>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="single-blog">-->
+<!--                                <div class="blog-thumb">-->
+<!--                                    <img src="img/blog/blog-2.jpg" alt="">-->
+<!--                                </div>-->
+<!--                                <div class="blog-details">-->
+<!--                                    <h4><a href="#">The User Experience</a></h4>-->
+<!--                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sagittis... <a href="#">Read More</a></p>-->
+<!--                                    <p class="blog-meta">Posted by <a href="#">admin</a> at <a href="#">04 Feb, 2017</a></p>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                            <div class="single-blog">-->
+<!--                                <div class="blog-thumb">-->
+<!--                                    <img src="img/blog/blog-3.jpg" alt="">-->
+<!--                                </div>-->
+<!--                                <div class="blog-details">-->
+<!--                                    <h4><a href="#">The User Experience</a></h4>-->
+<!--                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sagittis... <a href="#">Read More</a></p>-->
+<!--                                    <p class="blog-meta">Posted by <a href="#">admin</a> at <a href="#">04 Feb, 2017</a></p>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+                <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
+                    <div class="feed-widget insta-feed wow fadeIn">
+                        <h4>Instagram Feed</h4>
+                        <ul id="photos-list">
+<!--                            photos be here-->
+
+<!--                            <li>-->
+<!--                                <a href="#"><img src="img/instagram/insta_1.jpg" alt=""></a>-->
+<!--                            </li>-->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <!--BLOG AND FEED AREA END-->
+
+
     <!--CONTACT US AREA-->
     <section class="contact-area padding-top gray-bg" id="contact">
         <div class="contact-form-area">
@@ -496,6 +581,89 @@
 
     <!--===== ACTIVE JS=====-->
     <script src="js/main.js"></script>
+
+
+
+    <script type="text/javascript">
+
+
+        var tweetsList = document.getElementById("tweets-list");
+        var photosList = document.getElementById("photos-list");
+
+        var newTweet = function(objTweet){
+            var tweetArea = tweetsList.appendChild(document.createElement("li"));
+
+            var twitterLogoArea = tweetArea.appendChild(document.createElement("div"));
+            twitterLogoArea.setAttribute("class", "twitter-icon");
+
+            var twitterLogo = twitterLogoArea.appendChild(document.createElement("i"));
+            twitterLogo.setAttribute("class", "fab fa-twitter");
+
+            var textArea = tweetArea.appendChild(document.createElement("a"));
+            textArea.setAttribute("href", objTweet.url);
+            textArea.setAttribute("target", "_blank");
+            textArea.innerText = "@" + objTweet.name_user + ": " + objTweet.text;
+
+
+        };
+
+        var newInstagramPhoto = function(objPhoto){
+            var photoArea = photosList.appendChild(document.createElement("li"));
+
+            var linkPhoto = photoArea.appendChild(document.createElement("a"));
+            linkPhoto.setAttribute("href", objPhoto.link);
+            linkPhoto.setAttribute("target", "_blank");
+
+            console.log(objPhoto.images.low_resolution.url);
+
+            var photo = linkPhoto.appendChild(document.createElement("img"));
+            photo.setAttribute("src", objPhoto.images.low_resolution.url);
+            // photo.setAttribute("text", objPhoto.caption.text);
+
+        };
+
+        var loadTweets = function(){
+
+            $.ajax({
+                type: "GET",
+                url: "php/tweets-process.php",
+                dataType:'JSON',
+                success: function(response){
+                    // console.log(response);
+
+                    for (objTweet of response){
+                        newTweet(objTweet);
+                    }
+
+                }
+            });
+
+        };
+
+        var loadInstagramPosts = function(){
+
+            $.ajax({
+                type: "GET",
+                url: "https://api.instagram.com/v1/users/self/media/recent/?access_token=13343637167.02bd295.0e4164997d2247c4873d22cf0500d572&count=9",
+                dataType:'JSON',
+                success: function(response){
+                    // console.log(response.data);
+
+                    for (objPhoto of response.data){
+                        newInstagramPhoto(objPhoto);
+                    }
+
+                }
+            });
+
+        };
+
+        loadTweets();
+        loadInstagramPosts();
+
+    </script>
+
+
 <!--    <script src="js/maps.active.js"></script>-->
 </body>
 
