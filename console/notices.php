@@ -83,7 +83,7 @@ if (empty($_SESSION['user_email'])) {
                         <div id="main-nav" class="stellarnav">
                             <ul id="nav" class="nav navbar-nav">
                                 <li><a href="/tech">Site</a></li>
-                                <li class="active"><a href="#">Notices</a></li>
+                                <li class="active"><a href="notices.php">Notices</a></li>
                                 <li><a href="#logout">Users</a></li>
                                 <li><a href="../php/logout-process.php">Logout</a></li>
                             </ul>
@@ -96,7 +96,82 @@ if (empty($_SESSION['user_email'])) {
     </header>
     <!--END TOP AREA-->
 
+    <div class="modal" id="modal-load" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header center">
+                    <h4 class="modal-title">loading...</h4>
+                </div>
+                <div class="center load-modal-spinner" id="load-modal-spinner">
+                    <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+                </div>
+                <div class="modal-body center">
+                    <p>Please wait.</p>
+                </div>
+                <!--                <div class="modal-footer">-->
+                <!--                    <button type="button" class="btn btn-default" id="sss" data-dismiss="modal">Close</button>-->
+                <!--                </div>-->
+            </div>
 
+        </div>
+    </div>
+
+    <div class="modal" id="modal-sucess" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header center">
+                    <h4 class="modal-title" id="modal-title">Sucess</h4>
+                </div>
+                <div class="modal-body center">
+                    <p id="modal-message">Notice deleted successful.</p>
+                </div>
+                <div class="modal-footer"">
+                    <button type="button" class="btn btn-default" id="modal-sucess-ok-button" data-dismiss="modal">OK</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal" id="modal-error" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header center">
+                    <h4 class="modal-title" id="modal-title">Error</h4>
+                </div>
+                <div class="modal-body center">
+                    <p id="modal-message">Fail to delete notice.</p>
+                </div>
+                <div class="modal-footer"">
+                    <button type="button" class="btn btn-default" id="modal-error-ok-button" data-dismiss="modal-error">OK</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="modal" id="modal-delete" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header center">
+                    <h4 class="modal-title" id="modal-title">Delete notice</h4>
+                </div>
+                <div class="modal-body center">
+                    <p id="modal-message">do you really want to delete the notice?</p>
+                    <p>This action can not be undone.</p>
+                </div>
+                <div class="modal-footer"">
+                <button type="button" class="btn btn-danger" id="modal-delete-cancel" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-success" id="modal-delete-confirm" data-dismiss="modal">Confirm</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
 
     <!--SERVICE TOP AREA-->
     <section class="about-area padding-100-50 gray-bg" id="features">
@@ -149,7 +224,6 @@ if (empty($_SESSION['user_email'])) {
     <script src="../js/isotope.pkgd.min.js"></script>
     <script src="../js/wow.min.js"></script>
     <script src="../js/stellarnav.min.js"></script>
-    <script src="../js/contact-form.js"></script>
     <script src="../js/jquery.sticky.js"></script>
 
     <!--===== ACTIVE JS=====-->
@@ -159,8 +233,9 @@ if (empty($_SESSION['user_email'])) {
 
     <script type="text/javascript">
 
-
         var notices = document.getElementById("notices");
+
+        var idDeleteNotice = -1;
 
         var offsetNotices = 0;
         var limitNotices = 10;
@@ -174,7 +249,7 @@ if (empty($_SESSION['user_email'])) {
                 imagePath = '../uploads/'+objNotice.image;
             }
             else{
-                imagePath = '../img/slider/slide-1.jpg';
+                imagePath = '../img/default.jpg';
             }
 
             var image = newNotice.appendChild(document.createElement("img"));
@@ -254,14 +329,18 @@ if (empty($_SESSION['user_email'])) {
                         location.href='edit-notice.php';
                     });
 
+                    $("button.btn-delete-link").click(function() {
+                        idDeleteNotice = this.getAttribute("id");
+                        // console.log(id);
+                        // console.log(dictNotices[id]);
+                        $('#modal-delete').show();
+                    });
 
                 }
             });
 
         };
 
-
-        loadNoticesByDB(limitNotices, offsetNotices);
 
         $("#btn-create-notice").click( function () {
             location.href='create-notice.php';
@@ -287,7 +366,44 @@ if (empty($_SESSION['user_email'])) {
             return time;
         }
 
+        $('#modal-sucess-ok-button').click(function () {
+            location.reload();
+        });
+        $('#modal-error-ok-button').click(function () {
+            $('#modal-error').hide();
+        });
+        $('#modal-delete-cancel').click(function () {
+            $('#modal-delete').hide();
+            idDeleteNotice = -1;
+        });
+        $('#modal-delete-confirm').click(function () {
+            $('#modal-delete').hide();
+            if (idDeleteNotice !== -1){
+                $("#modal-load").show();
 
+                $.post("../php/delete-notice-process.php",
+                {
+                    id: idDeleteNotice
+                },
+                function(data, status){
+                    $("#modal-load").hide();
+
+                    var res = JSON.parse(data);
+
+                    if (res.status === 'success'){
+                        console.log(res.message);
+                        $('#modal-sucess').show();
+
+
+                    } else{
+                        $('#modal-error').show();
+                    }
+                });
+            }
+        });
+
+
+        loadNoticesByDB(limitNotices, offsetNotices);
 
     </script>
 

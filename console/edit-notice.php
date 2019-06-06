@@ -227,15 +227,6 @@ if (empty($_SESSION['user_email'])) {
     </section>
     <!--SERVICE TOP AREA END-->
 
-<!--    <div>-->
-<!--        <!-- Trigger the modal with a button -->-->
-<!--        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>-->
-
-        <!-- Modal -->
-
-
-<!--    </div>-->
-
 
 
     <!--FOOER AREA-->
@@ -256,7 +247,7 @@ if (empty($_SESSION['user_email'])) {
         var objNotice = JSON.parse(localStorage.getItem('notice'));
         console.log(objNotice);
 
-        $('#form-body').val(objNotice.body);
+        $('#form-body').val(objNotice.body.replace(/<\/br>/g,"\n"));
         $('#form-title').val(objNotice.title);
 
 
@@ -307,6 +298,8 @@ if (empty($_SESSION['user_email'])) {
             var files =  $('#form-image').prop('files');
             var title = $('#form-title').val().trim();
             var body = $('#form-body').val().trim();
+
+            body = body.replace(/\r\n|\r|\n/g,"</br>");
 
             if(title.length === 0){
                 error = true;

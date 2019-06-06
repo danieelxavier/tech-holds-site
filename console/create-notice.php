@@ -25,7 +25,7 @@ if (empty($_SESSION['user_email'])) {
     <meta name="keywords" content="Personal, Portfolio, Agency, Onepage, Html, Business" />
 
     <!--====== TITLE TAG ======-->
-    <title>TECH-HOLDS - Quality and eficience in vessel cleaning</title>
+    <title>TECH-HOLDS Admin - New notice</title>
 
     <!--====== FAVICON ICON =======-->
     <link rel="shortcut icon" type="image/ico" href="../img/favicon.png" />
@@ -55,30 +55,6 @@ if (empty($_SESSION['user_email'])) {
 
 <body data-spy="scroll" data-target=".mainmenu-area" data-offset="90">
 
-
-    <!--====== SCRIPTS JS ======-->
-    <script src="../js/vendor/jquery-1.12.4.min.js"></script>
-    <script src="../js/vendor/bootstrap.min.js"></script>
-
-    <!--====== PLUGINS JS ======-->
-    <script src="../js/vendor/jquery.easing.1.3.js"></script>
-    <script src="../js/vendor/jquery-migrate-1.2.1.min.js"></script>
-    <script src="../js/vendor/jquery.appear.js"></script>
-    <script src="../js/owl.carousel.min.js"></script>
-    <script src="../js/stellar.js"></script>
-    <script src="../js/imagesloaded.pkgd.min.js"></script>
-    <script src="../js/isotope.pkgd.min.js"></script>
-    <script src="../js/wow.min.js"></script>
-    <script src="../js/stellarnav.min.js"></script>
-    <script src="../js/create-notice-form.js"></script>
-    <script src="../js/jquery.sticky.js"></script>
-
-    <!--===== ACTIVE JS=====-->
-    <script src="../js/main.js"></script>
-    <!--    <script src="js/maps.active.js"></script>-->
-
-
-
     <!--[if lt IE 8]>
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -107,9 +83,9 @@ if (empty($_SESSION['user_email'])) {
                         <div id="main-nav" class="stellarnav">
                             <ul id="nav" class="nav navbar-nav">
                                 <li><a href="/tech">Site</a></li>
-                                <li><a href="notices.php">Notices</a></li>
+                                <li class="active"><a href="notices.php">Notices</a></li>
                                 <li><a href="#logout">Users</a></li>
-                                <li><a href="#logout">Logout</a></li>
+                                <li><a href="../php/logout-process.php">Logout</a></li>
                             </ul>
                         </div>
                     </div>
@@ -125,13 +101,13 @@ if (empty($_SESSION['user_email'])) {
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header center">
-                    <h4 class="modal-title">carregando...</h4>
+                    <h4 class="modal-title">loading...</h4>
                 </div>
                 <div class="center load-notices-spinner" id="load-spinner">
                     <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
                 </div>
                 <div class="modal-body center">
-                    <p>Aguarde enquanto processamos.</p>
+                    <p>Please wait.</p>
                 </div>
 <!--                <div class="modal-footer">-->
 <!--                    <button type="button" class="btn btn-default" id="sss" data-dismiss="modal">Close</button>-->
@@ -170,13 +146,12 @@ if (empty($_SESSION['user_email'])) {
                     <p id="modal-message">You have to set title and notice text body.</p>
                 </div>
                 <div class="modal-footer"">
-                <button type="button" class="btn btn-default" id="modal-error-ok-button" data-dismiss="modal-error">OK</button>
+                    <button type="button" class="btn btn-default" id="modal-error-ok-button" data-dismiss="modal-error">OK</button>
+                </div>
             </div>
+
         </div>
-
     </div>
-    </div>
-
 
 
     <!--SERVICE TOP AREA-->
@@ -227,14 +202,7 @@ if (empty($_SESSION['user_email'])) {
     </section>
     <!--SERVICE TOP AREA END-->
 
-<!--    <div>-->
-<!--        <!-- Trigger the modal with a button -->-->
-<!--        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Open Modal</button>-->
 
-        <!-- Modal -->
-
-
-<!--    </div>-->
 
 
 
@@ -244,15 +212,30 @@ if (empty($_SESSION['user_email'])) {
     <!--FOOER AREA END-->
 
 
+    <!--====== SCRIPTS JS ======-->
+    <script src="../js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="../js/vendor/bootstrap.min.js"></script>
+
+    <!--====== PLUGINS JS ======-->
+    <script src="../js/vendor/jquery.easing.1.3.js"></script>
+    <script src="../js/vendor/jquery-migrate-1.2.1.min.js"></script>
+    <script src="../js/vendor/jquery.appear.js"></script>
+    <script src="../js/owl.carousel.min.js"></script>
+    <script src="../js/stellar.js"></script>
+    <script src="../js/imagesloaded.pkgd.min.js"></script>
+    <script src="../js/isotope.pkgd.min.js"></script>
+    <script src="../js/wow.min.js"></script>
+    <script src="../js/stellarnav.min.js"></script>
+    <script src="../js/create-notice-form.js"></script>
+    <script src="../js/jquery.sticky.js"></script>
+
+    <!--===== ACTIVE JS=====-->
+    <script src="../js/main.js"></script>
+    <!--    <script src="js/maps.active.js"></script>-->
+
 
 
     <script type="text/javascript">
-        // $("#myModal").hide();
-
-        // $(window).on('load',function(){
-        //     $('#myModal').modal('show');
-        // });
-
 
         $('#modal-sucess-ok-button').click(function () {
             location.href='notices.php';
@@ -301,6 +284,8 @@ if (empty($_SESSION['user_email'])) {
             var files =  $('#form-image').prop('files');
             var title = $('#form-title').val().trim();
             var body = $('#form-body').val().trim();
+
+            body = body.replace(/\r\n|\r|\n/g,"</br>");
 
             if(title.length === 0){
                 error = true;
