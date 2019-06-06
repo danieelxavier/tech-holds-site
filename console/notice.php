@@ -1,5 +1,3 @@
-
-
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -75,7 +73,7 @@
                         <div id="main-nav" class="stellarnav">
                             <ul id="nav" class="nav navbar-nav">
                                 <li><a href="/tech">Site</a></li>
-                                <li class="active"><a href="#">Notices</a></li>
+                                <li class="active"><a href="notices.php">Notices</a></li>
                                 <li><a href="#logout">Users</a></li>
                                 <li><a href="../php/logout-process.php">Logout</a></li>
                             </ul>
@@ -89,6 +87,35 @@
     <!--END TOP AREA-->
 
 
+    <!--ABOUT AREA-->
+    <section class="about-area padding-100-50 gray-bg" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                    <div class="about-content mb50 wow fadeIn" id="notice-header">
+
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3 col-sm-12 col-xs-12">
+                    <div class="about-content mb50 wow fadeIn">
+                        <div class="company-image wow fadeIn" id="notice-image">
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                    <div class="about-content mb50 wow fadeIn" id="notice-text">
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+    <!--ABOUT AREA END-->
 
 
 
@@ -122,7 +149,43 @@
 
     <script type="text/javascript">
 
+        var objNotice = JSON.parse(localStorage.getItem('notice'));
+        console.log(objNotice);
 
+        var header = document.getElementById("notice-header");
+
+        var date = header.appendChild(document.createElement("p"));
+        var title = header.appendChild(document.createElement("h1"));
+        date.innerHTML = "Last modified: "+timeConverter(parseInt(objNotice.modifiedDate));
+        title.innerHTML = objNotice.title;
+
+        var image = document.getElementById("notice-image");
+        var imagePath;
+        if(objNotice.image){
+            imagePath = '../uploads/'+objNotice.image;
+            var img = image.appendChild(document.createElement("img"));
+            img.setAttribute("src", imagePath);
+            img.setAttribute("alt", objNotice.title);
+        }
+
+        var text = document.getElementById("notice-text");
+        var txt = text.appendChild(document.createElement("p"));
+        txt.innerHTML = objNotice.body;
+
+
+
+        function timeConverter(UNIX_timestamp){
+            var a = new Date(UNIX_timestamp * 1000);
+            var months = ['01','02','03','04','05','06','07','08','09','10','11','12'];
+            var year = a.getFullYear();
+            var month = months[a.getMonth()];
+            var date = a.getDate();
+            var hour = a.getHours();
+            var min = a.getMinutes();
+            var sec = a.getSeconds();
+            var time = date.toString().padStart(2,0) + '/' + month + '/' + year + ' - ' + hour.toString().padStart(2,0) + ':' + min.toString().padStart(2,0) ;
+            return time;
+        }
 
     </script>
 

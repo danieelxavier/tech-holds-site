@@ -65,7 +65,7 @@
             $email_title = "Contact from TECH-HOLDS site";
 
             $email_message = "CONTACT FROM SITE<br><br>";
-            $email_message .= "Reply to: ".$email." <br><br>";
+            $email_message .= "Reply to: ".$email." <br>";
             $email_message .= "Phone: ".$phone." <br><br>";
             $email_message .= $message;
 

@@ -92,6 +92,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST)) {
 
     $title = $_POST["form-title"];
     $body = $_POST["form-body"];
+    $id = $_POST['notice-id'];
     $author = $_SESSION['user_id'];
 
 //    echo $author."-------------";
@@ -118,14 +119,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST)) {
     $mybody = mysqli_real_escape_string($db, $body);
 
     if($has_image == 1) {
-        $sql = "INSERT INTO notice (title, body, release_date, user_id, image) VALUES ('$mytile','$mybody','$currentTime','$author','$base_name')";
+        $sql = "UPDATE notice SET title = '$mytile', body = '$mybody', release_date = '$currentTime', user_id = '$author', image = '$base_name' WHERE id ='$id'";
     }else{
-        $sql = "INSERT INTO notice (title, body, release_date, user_id) VALUES ('$mytile','$mybody','$currentTime','$author')";
+        $sql = "UPDATE notice SET title = '$mytile', body = '$mybody', release_date = '$currentTime', user_id = '$author' WHERE id ='$id'";
     }
 //    $sql = "INSERT INTO notice (title, body, release_date, user_id) VALUES ('Noticias de Salvador','Salvador está um caos total, muitas pessoas','1557446845','1')";
 
     if(mysqli_query($db, $sql)){
-        $res_message = "Records inserted successfully. Obs: ".$message_image;
+        $res_message = "Records updated successfully.";
         $res_status = "success";
     } else{
         $res_message = "ERROR: Could not able to execute $sql. " . mysqli_error($db);

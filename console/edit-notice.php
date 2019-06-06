@@ -125,13 +125,13 @@ if (empty($_SESSION['user_email'])) {
             <!-- Modal content-->
             <div class="modal-content">
                 <div class="modal-header center">
-                    <h4 class="modal-title">carregando...</h4>
+                    <h4 class="modal-title">loading...</h4>
                 </div>
                 <div class="center load-notices-spinner" id="load-spinner">
                     <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
                 </div>
                 <div class="modal-body center">
-                    <p>Aguarde enquanto processamos.</p>
+                    <p>Please wait.</p>
                 </div>
 <!--                <div class="modal-footer">-->
 <!--                    <button type="button" class="btn btn-default" id="sss" data-dismiss="modal">Close</button>-->
@@ -149,7 +149,7 @@ if (empty($_SESSION['user_email'])) {
                     <h4 class="modal-title" id="modal-title">Sucess</h4>
                 </div>
                 <div class="modal-body center">
-                    <p id="modal-message">Notice created successful.</p>
+                    <p id="modal-message">Notice updated successful.</p>
                 </div>
                 <div class="modal-footer"">
                     <button type="button" class="btn btn-default" id="modal-sucess-ok-button" data-dismiss="modal">OK</button>
@@ -187,7 +187,7 @@ if (empty($_SESSION['user_email'])) {
                     <div class="col-md-8 col-md-offset-3 col-lg-8 col-lg-offset-3 col-sm-12 col-xs-12">
                         <div class="create-notice-form mb50 wow fadeIn">
 
-                            <h1>New Notice</h1>
+                            <h1>Edit Notice</h1>
 
                             <form action="#" id="create-notice-form" method="post" enctype="multipart/form-data">
 
@@ -253,6 +253,12 @@ if (empty($_SESSION['user_email'])) {
         //     $('#myModal').modal('show');
         // });
 
+        var objNotice = JSON.parse(localStorage.getItem('notice'));
+        console.log(objNotice);
+
+        $('#form-body').val(objNotice.body);
+        $('#form-title').val(objNotice.title);
+
 
         $('#modal-sucess-ok-button').click(function () {
             location.href='notices.php';
@@ -267,7 +273,7 @@ if (empty($_SESSION['user_email'])) {
                 type: "POST",
                 enctype: 'multipart/form-data',
                 data: data,
-                url: "../php/create-notice-process.php",
+                url: "../php/edit-notice-process.php",
                 processData: false,
                 contentType:false,
                 dataType:"json",
@@ -317,10 +323,13 @@ if (empty($_SESSION['user_email'])) {
                 if(files.length > 0) {
                     var file = files[0];
                     formdata.append("form-image", file);
+                }else {
+                    formdata.append("form-image", "");
                 }
 
                 formdata.append("form-title", title);
                 formdata.append("form-body", body);
+                formdata.append("notice-id", objNotice.id);
 
                 console.log(formdata);
                 console.log(title);

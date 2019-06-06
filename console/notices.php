@@ -200,18 +200,21 @@ if (empty($_SESSION['user_email'])) {
             options.setAttribute("class", "notice-options");
             var buttonShow = options.appendChild(document.createElement("button"));
             buttonShow.setAttribute("class", "btn-show-link btn btn-info");
-            buttonShow.setAttribute("id", "#show_"+objNotice.id);
+            buttonShow.setAttribute("id", ""+objNotice.id);
             buttonShow.innerText = "Show";
             var buttonEdit = options.appendChild(document.createElement("button"));
-            buttonEdit.setAttribute("class", "btn btn-warning");
+            buttonEdit.setAttribute("class", "btn-edit-link btn btn-warning");
+            buttonEdit.setAttribute("id", ""+objNotice.id);
             buttonEdit.innerText = "Edit";
             var buttonDelete = options.appendChild(document.createElement("button"));
-            buttonDelete.setAttribute("class", "btn btn-danger");
+            buttonDelete.setAttribute("class", "btn-delete-link btn btn-danger");
+            buttonDelete.setAttribute("id", ""+objNotice.id);
             buttonDelete.innerText = "Delete";
         };
 
         var loadNoticesByDB = function(limit, offset){
 
+            var dictNotices = {};
             $.ajax({
                 type: "GET",
                 url: "../php/notices-process.php",
@@ -231,11 +234,26 @@ if (empty($_SESSION['user_email'])) {
                         // console.log(objNotice.title);
 
                         newNotice(objNotice);
+
+                        dictNotices[objNotice.id] = objNotice;
                     }
 
                     $("button.btn-show-link").click(function() {
+                        let id = this.getAttribute("id");
+                        // console.log(id);
+                        // console.log(dictNotices[id]);
+                        localStorage.setItem('notice', JSON.stringify(dictNotices[id]));
                         location.href='notice.php';
                     });
+
+                    $("button.btn-edit-link").click(function() {
+                        let id = this.getAttribute("id");
+                        // console.log(id);
+                        // console.log(dictNotices[id]);
+                        localStorage.setItem('notice', JSON.stringify(dictNotices[id]));
+                        location.href='edit-notice.php';
+                    });
+
 
                 }
             });

@@ -46,7 +46,7 @@
 <body data-spy="scroll" data-target=".mainmenu-area" data-offset="90">
 
     <!--[if lt IE 8]>
-        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
     <!--- PRELOADER -->
@@ -76,6 +76,7 @@
                                 <li><a href="#about">About us</a></li>
                                 <li><a href="#services">Where</a></li>
                                 <li><a href="#team">Team</a></li>
+                                <li><a href="#news">News</a></li>
                                 <li><a href="#contact">Contact</a></li>
                             </ul>
                         </div>
@@ -348,7 +349,7 @@
 
 
     <!--INFO AREA-->
-    <section class="team-area padding-100-70" id="team">
+    <section class="team-area padding-100-70 gray-bg" id="team">
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-lg-8 col-md-offset-2 col-lg-offset-2 col-sm-12 col-xs-12">
@@ -400,6 +401,10 @@
                     <div class="feed-widget twitter-feed mb50 wow fadeIn">
                         <h4>Twitter Feed</h4>
                         <ul id="tweets-list">
+
+                            <div class="center load-notices-spinner" id="load-spinner-twitter">
+                                <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+                            </div>
 
                             <!-- tweets be here  -->
 <!--                            <li>-->
@@ -453,6 +458,11 @@
                     <div class="feed-widget insta-feed wow fadeIn">
                         <h4>Instagram Feed</h4>
                         <ul id="photos-list">
+
+                            <div class="center load-notices-spinner" id="load-spinner-instagram">
+                                <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+                            </div>
+
 <!--                            photos be here-->
 
 <!--                            <li>-->
@@ -614,7 +624,7 @@
             linkPhoto.setAttribute("href", objPhoto.link);
             linkPhoto.setAttribute("target", "_blank");
 
-            console.log(objPhoto.images.low_resolution.url);
+            // console.log(objPhoto.images.low_resolution.url);
 
             var photo = linkPhoto.appendChild(document.createElement("img"));
             photo.setAttribute("src", objPhoto.images.low_resolution.url);
@@ -630,6 +640,7 @@
                 dataType:'JSON',
                 success: function(response){
                     // console.log(response);
+                    $("#load-spinner-twitter").hide();
 
                     for (objTweet of response){
                         newTweet(objTweet);
@@ -648,6 +659,7 @@
                 dataType:'JSON',
                 success: function(response){
                     // console.log(response.data);
+                    $("#load-spinner-instagram").hide();
 
                     for (objPhoto of response.data){
                         newInstagramPhoto(objPhoto);
