@@ -1,3 +1,13 @@
+<?php
+session_start();
+
+if (empty($_SESSION['user_email'])) {
+
+    header('Location: ../index.php');
+    exit();
+}
+?>
+
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
@@ -18,25 +28,25 @@
     <title>TECH-HOLDS Admin - Notices</title>
 
     <!--====== FAVICON ICON =======-->
-    <link rel="shortcut icon" type="image/ico" href="../img/favicon.png" />
+    <link rel="shortcut icon" type="image/ico" href="../../img/favicon.png" />
 
     <!--====== STYLESHEETS ======-->
-    <link rel="stylesheet" href="../css/normalize.css">
-    <link rel="stylesheet" href="../css/animate.css">
-    <link rel="stylesheet" href="../css/stellarnav.min.css">
-    <link rel="stylesheet" href="../css/progressbar.css">
-    <link rel="stylesheet" href="../css/loader-spinner.css">
-    <link rel="stylesheet" href="../css/owl.carousel.css">
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/normalize.css">
+    <link rel="stylesheet" href="../../css/animate.css">
+    <link rel="stylesheet" href="../../css/stellarnav.min.css">
+    <link rel="stylesheet" href="../../css/progressbar.css">
+    <link rel="stylesheet" href="../../css/loader-spinner.css">
+    <link rel="stylesheet" href="../../css/owl.carousel.css">
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <!--<link href="css/font-awesome.min.css" rel="stylesheet">-->
 
 
     <!--====== MAIN STYLESHEETS ======-->
-    <link href="../style.css" rel="stylesheet">
-    <link href="../css/responsive.css" rel="stylesheet">
+    <link href="../../style.css" rel="stylesheet">
+    <link href="../../css/responsive.css" rel="stylesheet">
 
-    <script src="../js/vendor/modernizr-2.8.3.min.js"></script>
+    <script src="../../js/vendor/modernizr-2.8.3.min.js"></script>
     <!--[if lt IE 9]>
         <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
         <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -67,15 +77,15 @@
                 <nav class="navbar">
                     <div class="container">
                         <div class="navbar-header">
-                            <a href="#home" class="navbar-brand"><img src="../img/logo.png" alt="Tech Holds Maritime Services Vessel Cleaning" width="160"></a>
+                            <a href="#home" class="navbar-brand"><img src="../../img/logo.png" alt="Tech Holds Maritime Services Vessel Cleaning" width="160"></a>
 
                         </div>
                         <div id="main-nav" class="stellarnav">
                             <ul id="nav" class="nav navbar-nav">
                                 <li><a href="/tech">Site</a></li>
-                                <li class="active"><a href="notices.php">Notices</a></li>
-                                <li><a href="#logout">Users</a></li>
-                                <li><a href="../php/logout-process.php">Logout</a></li>
+                                <li><a href="../">Notices</a></li>
+                                <li><a href="../users">Users</a></li>
+                                <li><a href="../../php/logout-process.php">Logout</a></li>
                             </ul>
                         </div>
                     </div>
@@ -88,25 +98,25 @@
 
 
     <!--ABOUT AREA-->
-    <section class="about-area padding-100-50 gray-bg" id="about">
+    <section class="notice-screen-area padding-100-50 gray-bg" id="about">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
-                    <div class="about-content mb50 wow fadeIn" id="notice-header">
+                    <div class="notice-header mb50 wow fadeIn" id="notice-header">
 
                     </div>
                 </div>
 
                 <div class="col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3 col-sm-12 col-xs-12">
                     <div class="about-content mb50 wow fadeIn">
-                        <div class="company-image wow fadeIn" id="notice-image">
+                        <div class="notice-image wow fadeIn" id="notice-image">
 
                         </div>
                     </div>
                 </div>
 
                 <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
-                    <div class="about-content mb50 wow fadeIn" id="notice-text">
+                    <div class="notice-content mb50 wow fadeIn" id="notice-text">
 
                     </div>
                 </div>
@@ -122,35 +132,35 @@
 
     <!--FOOER AREA-->
 
-    <?php  include("../footer.html");  ?>
+    <?php  include("../../footer.html");  ?>
     <!--FOOER AREA END-->
 
     <!--====== SCRIPTS JS ======-->
-    <script src="../js/vendor/jquery-1.12.4.min.js"></script>
-    <script src="../js/vendor/bootstrap.min.js"></script>
+    <script src="../../js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="../../js/vendor/bootstrap.min.js"></script>
 
     <!--====== PLUGINS JS ======-->
-    <script src="../js/vendor/jquery.easing.1.3.js"></script>
-    <script src="../js/vendor/jquery-migrate-1.2.1.min.js"></script>
-    <script src="../js/vendor/jquery.appear.js"></script>
-    <script src="../js/owl.carousel.min.js"></script>
-    <script src="../js/stellar.js"></script>
-    <script src="../js/imagesloaded.pkgd.min.js"></script>
-    <script src="../js/isotope.pkgd.min.js"></script>
-    <script src="../js/wow.min.js"></script>
-    <script src="../js/stellarnav.min.js"></script>
-    <script src="../js/contact-form.js"></script>
-    <script src="../js/jquery.sticky.js"></script>
+    <script src="../../js/vendor/jquery.easing.1.3.js"></script>
+    <script src="../../js/vendor/jquery-migrate-1.2.1.min.js"></script>
+    <script src="../../js/vendor/jquery.appear.js"></script>
+    <script src="../../js/owl.carousel.min.js"></script>
+    <script src="../../js/stellar.js"></script>
+    <script src="../../js/imagesloaded.pkgd.min.js"></script>
+    <script src="../../js/isotope.pkgd.min.js"></script>
+    <script src="../../js/wow.min.js"></script>
+    <script src="../../js/stellarnav.min.js"></script>
+    <script src="../../js/contact-form.js"></script>
+    <script src="../../js/jquery.sticky.js"></script>
 
     <!--===== ACTIVE JS=====-->
-    <script src="../js/main.js"></script>
+    <script src="../../js/main.js"></script>
     <!--    <script src="js/maps.active.js"></script>-->
 
 
     <script type="text/javascript">
 
         var objNotice = JSON.parse(localStorage.getItem('notice'));
-        console.log(objNotice);
+        // console.log(objNotice);
 
         var header = document.getElementById("notice-header");
 
@@ -162,7 +172,7 @@
         var image = document.getElementById("notice-image");
         var imagePath;
         if(objNotice.image){
-            imagePath = '../uploads/'+objNotice.image;
+            imagePath = '../../uploads/'+objNotice.image;
             var img = image.appendChild(document.createElement("img"));
             img.setAttribute("src", imagePath);
             img.setAttribute("alt", objNotice.title);

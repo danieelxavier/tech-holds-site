@@ -3,7 +3,7 @@ session_start();
 
 if (!empty($_SESSION['user_email'])) {
 
-    header('Location: index.php');
+    header('Location: notices/');
     exit();
 }
 ?>

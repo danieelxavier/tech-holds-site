@@ -3,7 +3,7 @@ session_start();
 
 if (empty($_SESSION['user_email'])) {
 
-    header('Location: index.php');
+    header('Location: ../index.php');
     exit();
 }
 ?>
@@ -25,28 +25,28 @@ if (empty($_SESSION['user_email'])) {
     <meta name="keywords" content="Personal, Portfolio, Agency, Onepage, Html, Business" />
 
     <!--====== TITLE TAG ======-->
-    <title>TECH-HOLDS - Quality and eficience in vessel cleaning</title>
+    <title>TECH-HOLDS Admin - New notice</title>
 
     <!--====== FAVICON ICON =======-->
-    <link rel="shortcut icon" type="image/ico" href="../img/favicon.png" />
+    <link rel="shortcut icon" type="image/ico" href="../../img/favicon.png" />
 
     <!--====== STYLESHEETS ======-->
-    <link rel="stylesheet" href="../css/normalize.css">
-    <link rel="stylesheet" href="../css/animate.css">
-    <link rel="stylesheet" href="../css/stellarnav.min.css">
-    <link rel="stylesheet" href="../css/progressbar.css">
-    <link rel="stylesheet" href="../css/loader-spinner.css">
-    <link rel="stylesheet" href="../css/owl.carousel.css">
-    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/normalize.css">
+    <link rel="stylesheet" href="../../css/animate.css">
+    <link rel="stylesheet" href="../../css/stellarnav.min.css">
+    <link rel="stylesheet" href="../../css/progressbar.css">
+    <link rel="stylesheet" href="../../css/loader-spinner.css">
+    <link rel="stylesheet" href="../../css/owl.carousel.css">
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <!--<link href="css/font-awesome.min.css" rel="stylesheet">-->
 
 
     <!--====== MAIN STYLESHEETS ======-->
-    <link href="../style.css" rel="stylesheet">
-    <link href="../css/responsive.css" rel="stylesheet">
+    <link href="../../style.css" rel="stylesheet">
+    <link href="../../css/responsive.css" rel="stylesheet">
 
-    <script src="../js/vendor/modernizr-2.8.3.min.js"></script>
+    <script src="../../js/vendor/modernizr-2.8.3.min.js"></script>
     <!--[if lt IE 9]>
         <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
         <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -54,30 +54,6 @@ if (empty($_SESSION['user_email'])) {
 </head>
 
 <body data-spy="scroll" data-target=".mainmenu-area" data-offset="90">
-
-
-    <!--====== SCRIPTS JS ======-->
-    <script src="../js/vendor/jquery-1.12.4.min.js"></script>
-    <script src="../js/vendor/bootstrap.min.js"></script>
-
-    <!--====== PLUGINS JS ======-->
-    <script src="../js/vendor/jquery.easing.1.3.js"></script>
-    <script src="../js/vendor/jquery-migrate-1.2.1.min.js"></script>
-    <script src="../js/vendor/jquery.appear.js"></script>
-    <script src="../js/owl.carousel.min.js"></script>
-    <script src="../js/stellar.js"></script>
-    <script src="../js/imagesloaded.pkgd.min.js"></script>
-    <script src="../js/isotope.pkgd.min.js"></script>
-    <script src="../js/wow.min.js"></script>
-    <script src="../js/stellarnav.min.js"></script>
-    <script src="../js/create-notice-form.js"></script>
-    <script src="../js/jquery.sticky.js"></script>
-
-    <!--===== ACTIVE JS=====-->
-    <script src="../js/main.js"></script>
-    <!--    <script src="js/maps.active.js"></script>-->
-
-
 
     <!--[if lt IE 8]>
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -101,15 +77,15 @@ if (empty($_SESSION['user_email'])) {
                 <nav class="navbar">
                     <div class="container">
                         <div class="navbar-header">
-                            <a href="#home" class="navbar-brand"><img src="../img/logo.png" alt="Tech Holds Maritime Services Vessel Cleaning" width="160"></a>
+                            <a href="#home" class="navbar-brand"><img src="../../img/logo.png" alt="Tech Holds Maritime Services Vessel Cleaning" width="160"></a>
 
                         </div>
                         <div id="main-nav" class="stellarnav">
                             <ul id="nav" class="nav navbar-nav">
                                 <li><a href="/tech">Site</a></li>
-                                <li><a href="notices.php">Notices</a></li>
-                                <li><a href="#logout">Users</a></li>
-                                <li><a href="#logout">Logout</a></li>
+                                <li><a href="../">Notices</a></li>
+                                <li><a href="../users">Users</a></li>
+                                <li><a href="../../php/logout-process.php">Logout</a></li>
                             </ul>
                         </div>
                     </div>
@@ -149,7 +125,7 @@ if (empty($_SESSION['user_email'])) {
                     <h4 class="modal-title" id="modal-title">Sucess</h4>
                 </div>
                 <div class="modal-body center">
-                    <p id="modal-message">Notice updated successful.</p>
+                    <p id="modal-message">Notice created successful.</p>
                 </div>
                 <div class="modal-footer"">
                     <button type="button" class="btn btn-default" id="modal-sucess-ok-button" data-dismiss="modal">OK</button>
@@ -170,13 +146,12 @@ if (empty($_SESSION['user_email'])) {
                     <p id="modal-message">You have to set title and notice text body.</p>
                 </div>
                 <div class="modal-footer"">
-                <button type="button" class="btn btn-default" id="modal-error-ok-button" data-dismiss="modal-error">OK</button>
+                    <button type="button" class="btn btn-default" id="modal-error-ok-button" data-dismiss="modal-error">OK</button>
+                </div>
             </div>
+
         </div>
-
     </div>
-    </div>
-
 
 
     <!--SERVICE TOP AREA-->
@@ -187,7 +162,7 @@ if (empty($_SESSION['user_email'])) {
                     <div class="col-md-8 col-md-offset-3 col-lg-8 col-lg-offset-3 col-sm-12 col-xs-12">
                         <div class="create-notice-form mb50 wow fadeIn">
 
-                            <h1>Edit Notice</h1>
+                            <h1>New Notice</h1>
 
                             <form action="#" id="create-notice-form" method="post" enctype="multipart/form-data">
 
@@ -229,30 +204,41 @@ if (empty($_SESSION['user_email'])) {
 
 
 
+
+
     <!--FOOER AREA-->
 
-    <?php  include("../footer.html");  ?>
+    <?php  include("../../footer.html");  ?>
     <!--FOOER AREA END-->
 
+
+    <!--====== SCRIPTS JS ======-->
+    <script src="../../js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="../../js/vendor/bootstrap.min.js"></script>
+
+    <!--====== PLUGINS JS ======-->
+    <script src="../../js/vendor/jquery.easing.1.3.js"></script>
+    <script src="../../js/vendor/jquery-migrate-1.2.1.min.js"></script>
+    <script src="../../js/vendor/jquery.appear.js"></script>
+    <script src="../../js/owl.carousel.min.js"></script>
+    <script src="../../js/stellar.js"></script>
+    <script src="../../js/imagesloaded.pkgd.min.js"></script>
+    <script src="../../js/isotope.pkgd.min.js"></script>
+    <script src="../../js/wow.min.js"></script>
+    <script src="../../js/stellarnav.min.js"></script>
+    <script src="../../js/create-notice-form.js"></script>
+    <script src="../../js/jquery.sticky.js"></script>
+
+    <!--===== ACTIVE JS=====-->
+    <script src="../../js/main.js"></script>
+    <!--    <script src="js/maps.active.js"></script>-->
 
 
 
     <script type="text/javascript">
-        // $("#myModal").hide();
-
-        // $(window).on('load',function(){
-        //     $('#myModal').modal('show');
-        // });
-
-        var objNotice = JSON.parse(localStorage.getItem('notice'));
-        console.log(objNotice);
-
-        $('#form-body').val(objNotice.body.replace(/<\/br>/g,"\n"));
-        $('#form-title').val(objNotice.title);
-
 
         $('#modal-sucess-ok-button').click(function () {
-            location.href='notices.php';
+            location.href='../';
         });
         $('#modal-error-ok-button').click(function () {
             $('#modal-error').hide();
@@ -264,21 +250,20 @@ if (empty($_SESSION['user_email'])) {
                 type: "POST",
                 enctype: 'multipart/form-data',
                 data: data,
-                url: "../php/edit-notice-process.php",
+                url: "../../php/create-notice-process.php",
                 processData: false,
                 contentType:false,
                 dataType:"json",
                 success: function(response){
                     $("#loadModal").hide();
-                    console.log(response);
 
                     if (response.status === 'success'){
-                        console.log(response.message);
+                        // console.log(response.message);
                         $('#modal-sucess').show();
 
 
                     } else{
-                        console.log(response.message);
+                        $('#modal-error').show();
                     }
 
 
@@ -316,18 +301,15 @@ if (empty($_SESSION['user_email'])) {
                 if(files.length > 0) {
                     var file = files[0];
                     formdata.append("form-image", file);
-                }else {
-                    formdata.append("form-image", "");
                 }
 
                 formdata.append("form-title", title);
                 formdata.append("form-body", body);
-                formdata.append("notice-id", objNotice.id);
 
-                console.log(formdata);
-                console.log(title);
-                console.log(body);
-                console.log(files[0]);
+                // console.log(formdata);
+                // console.log(title);
+                // console.log(body);
+                // console.log(files[0]);
 
 
                 processNewNotice(formdata)

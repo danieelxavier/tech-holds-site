@@ -363,6 +363,15 @@
         margin: 5px 0;
     }
 
+    /* NOTICE SCREEN AREA */
+
+    .notice-header h1{
+        font-size: 20px;
+    }
+
+    .notice-content {
+        font-size: 16px;
+    }
 
 
 }
