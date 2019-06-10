@@ -1,10 +1,10 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
 
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "tech-holds-site";
+    $servername = "localhost:3306";
+    $username = "techho97_tech";
+    $password = "tech-holds2019";
+    $dbname = "techho97_blog";
 
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);

@@ -1,13 +1,3 @@
-<?php
-session_start();
-
-if (!empty($_SESSION['user_email'])) {
-
-    header('Location: notices/');
-    exit();
-}
-?>
-
 
 <!doctype html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
@@ -26,7 +16,7 @@ if (!empty($_SESSION['user_email'])) {
     <meta name="keywords" content="Personal, Portfolio, Agency, Onepage, Html, Business" />
 
     <!--====== TITLE TAG ======-->
-    <title>TECH-HOLDS Admin - Login</title>
+    <title>TECH-HOLDS - Notice</title>
 
     <!--====== FAVICON ICON =======-->
     <link rel="shortcut icon" type="image/ico" href="../img/favicon.png" />
@@ -36,6 +26,7 @@ if (!empty($_SESSION['user_email'])) {
     <link rel="stylesheet" href="../css/animate.css">
     <link rel="stylesheet" href="../css/stellarnav.min.css">
     <link rel="stylesheet" href="../css/progressbar.css">
+    <link rel="stylesheet" href="../css/loader-spinner.css">
     <link rel="stylesheet" href="../css/owl.carousel.css">
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
@@ -77,14 +68,13 @@ if (!empty($_SESSION['user_email'])) {
                 <nav class="navbar">
                     <div class="container">
                         <div class="navbar-header">
-                            <h1>
-                                <a href="#home" class="navbar-brand"><img src="../img/logo.png" alt="Tech Holds Maritime Services Vessel Cleaning" width="160"></a>
-                            </h1>
+                            <a href="../" class="navbar-brand"><img src="../img/logo.png" alt="Tech Holds Maritime Services Vessel Cleaning" width="160"></a>
+
                         </div>
                         <div id="main-nav" class="stellarnav">
                             <ul id="nav" class="nav navbar-nav">
-                                <li><a href="../../">Site</a></li>
-                                <li class="active"><a href="#login">Login</a></li>
+                                <li><a href="../">Back to Site</a></li>
+                                <li><a href="index.php">Show all posts</a></li>
                             </ul>
                         </div>
                     </div>
@@ -96,44 +86,43 @@ if (!empty($_SESSION['user_email'])) {
     <!--END TOP AREA-->
 
 
-    <!--CONTACT US AREA-->
-    <section class="login-area padding-top gray-bg" id="login">
-        <div class="login-form-area">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12">
-                        <div class="login-form mb50 wow fadeIn">
-                            <h2>Login</h2>
-                            <form action="../php/login-process.php" id="login-form" method="post">
-                                <div class="form-group" id="email-field">
-                                    <div class="form-input">
-                                        <input type="email" class="form-control" id="form-email" name="form-email" placeholder="Email.." required>
-                                    </div>
-                                </div>
-                                <div class="form-group" id="password-field">
-                                    <div class="form-input">
-                                        <input type="password" class="form-control" id="form-password" name="form-password" placeholder="Password..">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                    <button type="submit">Login</button>
-                                </div>
-                            </form>
+    <!--ABOUT AREA-->
+    <section class="notice-screen-area padding-100-50 gray-bg" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                    <div class="notice-header mb50 wow fadeIn" id="notice-header">
+
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3 col-sm-12 col-xs-12">
+                    <div class="about-content mb50 wow fadeIn">
+                        <div class="notice-image wow fadeIn" id="notice-image">
+
                         </div>
                     </div>
                 </div>
 
+                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                    <div class="notice-content mb50 wow fadeIn" id="notice-text">
+
+                    </div>
+                </div>
+
+
             </div>
         </div>
     </section>
-    <!--CONTACT US AREA END-->
+    <!--ABOUT AREA END-->
+
+
 
 
     <!--FOOER AREA-->
 
     <?php  include("../footer.html");  ?>
     <!--FOOER AREA END-->
-
 
     <!--====== SCRIPTS JS ======-->
     <script src="../js/vendor/jquery-1.12.4.min.js"></script>
@@ -154,7 +143,53 @@ if (!empty($_SESSION['user_email'])) {
 
     <!--===== ACTIVE JS=====-->
     <script src="../js/main.js"></script>
-<!--    <script src="js/maps.active.js"></script>-->
+    <!--    <script src="js/maps.active.js"></script>-->
+
+
+    <script type="text/javascript">
+
+        var objNotice = JSON.parse(localStorage.getItem('notice'));
+        // console.log(objNotice);
+
+        var header = document.getElementById("notice-header");
+
+        var date = header.appendChild(document.createElement("p"));
+        var title = header.appendChild(document.createElement("h1"));
+        date.innerHTML = "Last modified: "+timeConverter(parseInt(objNotice.modifiedDate));
+        title.innerHTML = objNotice.title;
+
+        var image = document.getElementById("notice-image");
+        var imagePath;
+        if(objNotice.image){
+            imagePath = '../uploads/'+objNotice.image;
+            var img = image.appendChild(document.createElement("img"));
+            img.setAttribute("src", imagePath);
+            img.setAttribute("alt", objNotice.title);
+        }
+
+        var text = document.getElementById("notice-text");
+        var txt = text.appendChild(document.createElement("p"));
+        txt.innerHTML = objNotice.body;
+
+        document.title = "TECH-HOLDS - " + objNotice.title.substring(0,10) + "...";
+
+        function timeConverter(UNIX_timestamp){
+            var a = new Date(UNIX_timestamp * 1000);
+            var months = ['01','02','03','04','05','06','07','08','09','10','11','12'];
+            var year = a.getFullYear();
+            var month = months[a.getMonth()];
+            var date = a.getDate();
+            var hour = a.getHours();
+            var min = a.getMinutes();
+            var sec = a.getSeconds();
+            var time = date.toString().padStart(2,0) + '/' + month + '/' + year + ' - ' + hour.toString().padStart(2,0) + ':' + min.toString().padStart(2,0) ;
+            return time;
+        }
+
+    </script>
+
+
+
 </body>
 
 </html>

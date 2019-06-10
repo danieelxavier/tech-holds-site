@@ -7,9 +7,9 @@
 		exit();
 	}
 	else{
-	    echo $_SESSION['user_email']."<br>";
-        echo $_SESSION['user_name']."<br>";
-        echo $_SESSION['user_id']."<br>";
+//	    echo $_SESSION['user_email']."<br>";
+//        echo $_SESSION['user_name']."<br>";
+//        echo $_SESSION['user_id']."<br>";
         session_unset();
 		session_destroy();
 

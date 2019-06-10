@@ -82,7 +82,7 @@ if (empty($_SESSION['user_email'])) {
                         </div>
                         <div id="main-nav" class="stellarnav">
                             <ul id="nav" class="nav navbar-nav">
-                                <li><a href="/tech">Site</a></li>
+                                <li><a href="../../">Site</a></li>
                                 <li><a href="../">Notices</a></li>
                                 <li class="active"><a href="../users/">Users</a></li>
                                 <li><a href="../../php/logout-process.php">Logout</a></li>

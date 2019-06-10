@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST)) {
 
     $passcode = 'e8d95a51f3af4a3b134bf6bb680a213a';
 
-    $db = mysqli_connect("localhost", "root", "", "tech-holds-site");
+    $db = mysqli_connect("localhost:3306", "techho97_tech", "tech-holds2019", "techho97_blog");
     //excessão de disponibilidade do servidor do banco
     if (!$db) {
         die("<p>O servidor do banco está indisponível</p>");

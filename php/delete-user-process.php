@@ -11,7 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST)) {
     $id = $_POST["id"];
 
 
-    $db = mysqli_connect("localhost", "root", "", "tech-holds-site");
+    $db = mysqli_connect("localhost:3306", "techho97_tech", "tech-holds2019", "techho97_blog");
     //excessão de disponibilidade do servidor do banco
     if (!$db) {
         $res_message = "O servidor do banco está indisponível";

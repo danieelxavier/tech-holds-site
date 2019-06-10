@@ -50,9 +50,9 @@
     <![endif]-->
 
     <!--- PRELOADER -->
-    <div class="preeloader">
-        <div class="preloader-spinner"></div>
-    </div>
+<!--    <div class="preeloader">-->
+<!--        <div class="preloader-spinner"></div>-->
+<!--    </div>-->
 
     <!--SCROLL TO TOP-->
     <a href="#home" class="scrolltotop"><i class="fas fa-long-arrow-alt-up"></i></a>
@@ -397,7 +397,7 @@
             </div>
             <div class="row">
 
-                <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12 hidden-sm">
+                <div class="col-md-6 col-lg-4 col-sm-6 col-xs-12 hidden-sm">
                     <div class="feed-widget twitter-feed mb50 wow fadeIn">
                         <h4>Twitter Feed</h4>
                         <ul id="tweets-list">
@@ -416,10 +416,10 @@
                     </div>
                 </div>
 
-<!--                <div class="col-md-6 col-lg-4 col-sm-6 col-xs-12">-->
-<!--                    <div class="feed-widget blog-feed mb50 wow fadeIn">-->
-<!--                        <h4>Blog Feed</h4>-->
-<!--                        <div class="blog-list">-->
+                <div class="col-md-6 col-lg-4 col-sm-6 col-xs-12">
+                    <div class="feed-widget blog-feed mb50 wow fadeIn">
+                        <h4>Blog Feed</h4>
+                        <div class="blog-list" id="blog-content-area">
 <!--                            <div class="single-blog">-->
 <!--                                <div class="blog-thumb">-->
 <!--                                    <img src="img/blog/blog-1.jpg" alt="">-->
@@ -430,31 +430,12 @@
 <!--                                    <p class="blog-meta">Posted by <a href="#">admin</a> at <a href="#">04 Feb, 2017</a></p>-->
 <!--                                </div>-->
 <!--                            </div>-->
-<!--                            <div class="single-blog">-->
-<!--                                <div class="blog-thumb">-->
-<!--                                    <img src="img/blog/blog-2.jpg" alt="">-->
-<!--                                </div>-->
-<!--                                <div class="blog-details">-->
-<!--                                    <h4><a href="#">The User Experience</a></h4>-->
-<!--                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sagittis... <a href="#">Read More</a></p>-->
-<!--                                    <p class="blog-meta">Posted by <a href="#">admin</a> at <a href="#">04 Feb, 2017</a></p>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                            <div class="single-blog">-->
-<!--                                <div class="blog-thumb">-->
-<!--                                    <img src="img/blog/blog-3.jpg" alt="">-->
-<!--                                </div>-->
-<!--                                <div class="blog-details">-->
-<!--                                    <h4><a href="#">The User Experience</a></h4>-->
-<!--                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sagittis... <a href="#">Read More</a></p>-->
-<!--                                    <p class="blog-meta">Posted by <a href="#">admin</a> at <a href="#">04 Feb, 2017</a></p>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
+                        </div>
+                        <a href="blog/index.php" target="_blank" style="cursor: pointer; float: right; margin-top: 10px;">SHOW ALL POSTS</a>
+                    </div>
+                </div>
 
-                <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
+                <div class="col-md-6 col-lg-4 col-sm-6 col-xs-12">
                     <div class="feed-widget insta-feed wow fadeIn">
                         <h4>Instagram Feed</h4>
                         <ul id="photos-list">
@@ -580,7 +561,6 @@
     <script src="js/vendor/jquery.easing.1.3.js"></script>
     <script src="js/vendor/jquery-migrate-1.2.1.min.js"></script>
     <script src="js/vendor/jquery.appear.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
     <script src="js/stellar.js"></script>
     <script src="js/imagesloaded.pkgd.min.js"></script>
     <script src="js/isotope.pkgd.min.js"></script>
@@ -589,8 +569,6 @@
     <script src="js/contact-form.js"></script>
     <script src="js/jquery.sticky.js"></script>
 
-    <!--===== ACTIVE JS=====-->
-    <script src="js/main.js"></script>
 
 
 
@@ -670,13 +648,107 @@
 
         };
 
+        function timeConverter(UNIX_timestamp){
+            var a = new Date(UNIX_timestamp * 1000);
+            var months = ['01','02','03','04','05','06','07','08','09','10','11','12'];
+            var year = a.getFullYear();
+            var month = months[a.getMonth()];
+            var date = a.getDate();
+            var hour = a.getHours();
+            var min = a.getMinutes();
+            var sec = a.getSeconds();
+            var time = date.toString().padStart(2,0) + '/' + month + '/' + year ;
+            return time;
+        }
+
+
+        var blogFeed = document.getElementById("blog-content-area");
+        var newNotice = function(objNotice){
+            var singleBlog = blogFeed.appendChild(document.createElement("div"));
+            singleBlog.setAttribute("class", "single-blog");
+
+            var blogThumb = singleBlog.appendChild(document.createElement("div"));
+            blogThumb.setAttribute("class", "blog-thumb");
+
+            var imagePath;
+            if(objNotice.image){
+                imagePath = 'uploads/'+objNotice.image;
+            }
+            else{
+                imagePath = 'img/default.jpg';
+            }
+
+            var image = blogThumb.appendChild(document.createElement("img"));
+            image.setAttribute("src", imagePath);
+
+            var blogDetails = singleBlog.appendChild(document.createElement("div"));
+            blogDetails.setAttribute("class", "blog-details");
+
+            var titleArea = blogDetails.appendChild(document.createElement("h4"));
+            var titleLink = titleArea.appendChild(document.createElement("a"));
+            titleLink.setAttribute("class", "title-link");
+            titleLink.setAttribute("id", objNotice.id);
+            titleLink.innerText = objNotice.title;
+            titleLink.style.cursor = "pointer";
+
+            var bodyArea = blogDetails.appendChild(document.createElement("p"));
+            bodyArea.setAttribute("class", "body-feed-blog");
+            bodyArea.innerText = objNotice.body.substring(0, 105) + "... ";
+            var readMoreLink = bodyArea.appendChild(document.createElement("a"));
+            readMoreLink.setAttribute("class", "read-more-link");
+            readMoreLink.setAttribute("id", objNotice.id);
+            readMoreLink.innerText = " Read More";
+            readMoreLink.style.cursor = "pointer";
+
+            var dataArea = blogDetails.appendChild(document.createElement("p"));
+            dataArea.innerText = "Posted by " + objNotice.author + " at " + timeConverter(parseInt(objNotice.modifiedDate));
+        };
+
+        var loadBlogFeed = function(){
+            var dictNotices = {};
+            $.ajax({
+                type: "GET",
+                url: "php/notices-process.php",
+                data: { "offset": 0,
+                        "limit" : 5 },
+                dataType:'JSON',
+                success: function(response){
+                    for (objNotice of response){
+                        newNotice(objNotice);
+                        dictNotices[objNotice.id] = objNotice;
+                    }
+
+                    $("a.read-more-link").click(function() {
+                        let id = this.getAttribute("id");
+                        localStorage.setItem('notice', JSON.stringify(dictNotices[id]));
+                        window.open('blog/notice.php', '_blank');
+                    });
+
+                    $("a.title-link").click(function() {
+                        let id = this.getAttribute("id");
+                        localStorage.setItem('notice', JSON.stringify(dictNotices[id]));
+                        window.open('blog/notice.php', '_blank');
+                    });
+
+                }
+            });
+        };
+
         loadTweets();
+        loadBlogFeed();
         loadInstagramPosts();
 
     </script>
 
 
+    <script src="js/owl.carousel.min.js"></script>
+
+    <!--===== ACTIVE JS=====-->
+    <script src="js/main.js"></script>
+
 <!--    <script src="js/maps.active.js"></script>-->
 </body>
+
+
 
 </html>

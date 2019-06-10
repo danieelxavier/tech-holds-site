@@ -82,7 +82,7 @@ if (empty($_SESSION['user_email'])) {
                         </div>
                         <div id="main-nav" class="stellarnav">
                             <ul id="nav" class="nav navbar-nav">
-                                <li><a href="/tech">Site</a></li>
+                                <li><a href="../../">Site</a></li>
                                 <li><a href="../">Notices</a></li>
                                 <li class="active"><a href="../users">Users</a></li>
                                 <li><a href="../../php/logout-process.php">Logout</a></li>
@@ -191,7 +191,7 @@ if (empty($_SESSION['user_email'])) {
                                 <div class="form-group" id="title-field">
                                     <div class="form-input">
                                         <label for="form-confirm-password">Confirm new password:</label>
-                                        <input type="text" class="form-control" id="form-confirm-password" name="form-confirm-password" placeholder="Conform new password.." required>
+                                        <input type="password" class="form-control" id="form-confirm-password" name="form-confirm-password" placeholder="Conform new password.." required>
                                     </div>
                                 </div>
 

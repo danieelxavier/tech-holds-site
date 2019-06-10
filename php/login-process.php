@@ -9,9 +9,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST)) {
 
     $passcode = md5($passcode, false);
 
-    echo $passcode;
 
-    $db = mysqli_connect("localhost", "root", "", "tech-holds-site");
+    $db = mysqli_connect("localhost:3306", "techho97_tech", "tech-holds2019", "techho97_blog");
     //excessão de disponibilidade do servidor do banco
     if (!$db) {
         die("<p>O servidor do banco está indisponível</p>");
@@ -36,12 +35,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST)) {
         $_SESSION['user_email'] = $myusername;
         $_SESSION['user_name'] = $row['name'];
         $_SESSION['user_id'] = $row['id'];
-        echo "Welcome ".$row['name'];
+//        echo "Welcome ".$row['name'];
 
-        header("location: ../console/index.php");
+        header("location: ../console/");
     } else {
         $error = "Your Login Name or Password is invalid";
-        echo $error;
+//        echo $error;
     }
 }
 ?>

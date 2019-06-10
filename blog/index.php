@@ -25,28 +25,28 @@ if (empty($_SESSION['user_email'])) {
     <meta name="keywords" content="Personal, Portfolio, Agency, Onepage, Html, Business" />
 
     <!--====== TITLE TAG ======-->
-    <title>TECH-HOLDS Admin - Notices</title>
+    <title>TECH-HOLDS - Blog</title>
 
     <!--====== FAVICON ICON =======-->
-    <link rel="shortcut icon" type="image/ico" href="../../img/favicon.png" />
+    <link rel="shortcut icon" type="image/ico" href="../img/favicon.png" />
 
     <!--====== STYLESHEETS ======-->
-    <link rel="stylesheet" href="../../css/normalize.css">
-    <link rel="stylesheet" href="../../css/animate.css">
-    <link rel="stylesheet" href="../../css/stellarnav.min.css">
-    <link rel="stylesheet" href="../../css/progressbar.css">
-    <link rel="stylesheet" href="../../css/loader-spinner.css">
-    <link rel="stylesheet" href="../../css/owl.carousel.css">
-    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/animate.css">
+    <link rel="stylesheet" href="../css/stellarnav.min.css">
+    <link rel="stylesheet" href="../css/progressbar.css">
+    <link rel="stylesheet" href="../css/loader-spinner.css">
+    <link rel="stylesheet" href="../css/owl.carousel.css">
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <!--<link href="css/font-awesome.min.css" rel="stylesheet">-->
 
 
     <!--====== MAIN STYLESHEETS ======-->
-    <link href="../../style.css" rel="stylesheet">
-    <link href="../../css/responsive.css" rel="stylesheet">
+    <link href="../style.css" rel="stylesheet">
+    <link href="../css/responsive.css" rel="stylesheet">
 
-    <script src="../../js/vendor/modernizr-2.8.3.min.js"></script>
+    <script src="../js/vendor/modernizr-2.8.3.min.js"></script>
     <!--[if lt IE 9]>
         <script src="//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
         <script src="//oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -77,15 +77,12 @@ if (empty($_SESSION['user_email'])) {
                 <nav class="navbar">
                     <div class="container">
                         <div class="navbar-header">
-                            <a href="#home" class="navbar-brand"><img src="../../img/logo.png" alt="Tech Holds Maritime Services Vessel Cleaning" width="160"></a>
+                            <a href="../" class="navbar-brand"><img src="../img/logo.png" alt="Tech Holds Maritime Services Vessel Cleaning" width="160"></a>
 
                         </div>
                         <div id="main-nav" class="stellarnav">
                             <ul id="nav" class="nav navbar-nav">
-                                <li><a href="../../">Site</a></li>
-                                <li class="active"><a href="../notices/">Notices</a></li>
-                                <li><a href="../users">Users</a></li>
-                                <li><a href="../../php/logout-process.php">Logout</a></li>
+                                <li><a href="../">Site</a></li>
                             </ul>
                         </div>
                     </div>
@@ -117,71 +114,13 @@ if (empty($_SESSION['user_email'])) {
         </div>
     </div>
 
-    <div class="modal" id="modal-sucess" role="dialog">
-        <div class="modal-dialog">
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header center">
-                    <h4 class="modal-title" id="modal-title">Sucess</h4>
-                </div>
-                <div class="modal-body center">
-                    <p id="modal-message">Notice deleted successful.</p>
-                </div>
-                <div class="modal-footer"">
-                    <button type="button" class="btn btn-default" id="modal-sucess-ok-button" data-dismiss="modal">OK</button>
-                </div>
-            </div>
 
-        </div>
-    </div>
-
-    <div class="modal" id="modal-error" role="dialog">
-        <div class="modal-dialog">
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header center">
-                    <h4 class="modal-title" id="modal-title">Error</h4>
-                </div>
-                <div class="modal-body center">
-                    <p id="modal-message">Fail to delete notice.</p>
-                </div>
-                <div class="modal-footer"">
-                    <button type="button" class="btn btn-default" id="modal-error-ok-button" data-dismiss="modal-error">OK</button>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <div class="modal" id="modal-delete" role="dialog">
-        <div class="modal-dialog">
-            <!-- Modal content-->
-            <div class="modal-content">
-                <div class="modal-header center">
-                    <h4 class="modal-title" id="modal-title">Delete notice</h4>
-                </div>
-                <div class="modal-body center">
-                    <p id="modal-message">do you really want to delete the notice?</p>
-                    <p>This action can not be undone.</p>
-                </div>
-                <div class="modal-footer"">
-                <button type="button" class="btn btn-danger" id="modal-delete-cancel" data-dismiss="modal">Cancel</button>
-                    <button type="button" class="btn btn-success" id="modal-delete-confirm" data-dismiss="modal">Confirm</button>
-                </div>
-            </div>
-
-        </div>
-    </div>
 
     <!--SERVICE TOP AREA-->
     <section class="about-area padding-100-50 gray-bg" id="features">
         <div class="container">
 
-            <h1 class="col-md-12 col-lg-12 col-sm-12 col-xs-12">TECH-HOLDS Notices</h1>
-
-            <div class="actions-notice right col-md-4 col-lg-4 col-sm-12 col-xs-12" id="actions">
-                <button type="button" class="btn btn-success" id="btn-create-notice">Create a notice</button>
-            </div>
+            <h1 class="col-md-12 col-lg-12 col-sm-12 col-xs-12">TECH-HOLDS Blog</h1>
 
             <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12" id="notices">
 
@@ -207,35 +146,33 @@ if (empty($_SESSION['user_email'])) {
 
     <!--FOOER AREA-->
 
-    <?php  include("../../footer.html");  ?>
+    <?php  include("../footer.html");  ?>
     <!--FOOER AREA END-->
 
     <!--====== SCRIPTS JS ======-->
-    <script src="../../js/vendor/jquery-1.12.4.min.js"></script>
-    <script src="../../js/vendor/bootstrap.min.js"></script>
+    <script src="../js/vendor/jquery-1.12.4.min.js"></script>
+    <script src="../js/vendor/bootstrap.min.js"></script>
 
     <!--====== PLUGINS JS ======-->
-    <script src="../../js/vendor/jquery.easing.1.3.js"></script>
-    <script src="../../js/vendor/jquery-migrate-1.2.1.min.js"></script>
-    <script src="../../js/vendor/jquery.appear.js"></script>
-    <script src="../../js/owl.carousel.min.js"></script>
-    <script src="../../js/stellar.js"></script>
-    <script src="../../js/imagesloaded.pkgd.min.js"></script>
-    <script src="../../js/isotope.pkgd.min.js"></script>
-    <script src="../../js/wow.min.js"></script>
-    <script src="../../js/stellarnav.min.js"></script>
-    <script src="../../js/jquery.sticky.js"></script>
+    <script src="../js/vendor/jquery.easing.1.3.js"></script>
+    <script src="../js/vendor/jquery-migrate-1.2.1.min.js"></script>
+    <script src="../js/vendor/jquery.appear.js"></script>
+    <script src="../js/owl.carousel.min.js"></script>
+    <script src="../js/stellar.js"></script>
+    <script src="../js/imagesloaded.pkgd.min.js"></script>
+    <script src="../js/isotope.pkgd.min.js"></script>
+    <script src="../js/wow.min.js"></script>
+    <script src="../js/stellarnav.min.js"></script>
+    <script src="../js/jquery.sticky.js"></script>
 
     <!--===== ACTIVE JS=====-->
-    <script src="../../js/main.js"></script>
+    <script src="../js/main.js"></script>
     <!--    <script src="js/maps.active.js"></script>-->
 
 
     <script type="text/javascript">
 
         var notices = document.getElementById("notices");
-
-        var idDeleteNotice = -1;
 
         var offsetNotices = 0;
         var limitNotices = 10;
@@ -246,10 +183,10 @@ if (empty($_SESSION['user_email'])) {
 
             var imagePath;
             if(objNotice.image){
-                imagePath = '../../uploads/'+objNotice.image;
+                imagePath = '../uploads/'+objNotice.image;
             }
             else{
-                imagePath = '../../img/default.jpg';
+                imagePath = '../img/default.jpg';
             }
 
             var image = newNotice.appendChild(document.createElement("img"));
@@ -277,14 +214,6 @@ if (empty($_SESSION['user_email'])) {
             buttonShow.setAttribute("class", "btn-show-link btn btn-info");
             buttonShow.setAttribute("id", ""+objNotice.id);
             buttonShow.innerText = "Show";
-            var buttonEdit = options.appendChild(document.createElement("button"));
-            buttonEdit.setAttribute("class", "btn-edit-link btn btn-warning");
-            buttonEdit.setAttribute("id", ""+objNotice.id);
-            buttonEdit.innerText = "Edit";
-            var buttonDelete = options.appendChild(document.createElement("button"));
-            buttonDelete.setAttribute("class", "btn-delete-link btn btn-danger");
-            buttonDelete.setAttribute("id", ""+objNotice.id);
-            buttonDelete.innerText = "Delete";
         };
 
         var loadNoticesByDB = function(limit, offset){
@@ -292,7 +221,7 @@ if (empty($_SESSION['user_email'])) {
             var dictNotices = {};
             $.ajax({
                 type: "GET",
-                url: "../../php/notices-process.php",
+                url: "../php/notices-process.php",
                 data: { "offset": offset,
                     "limit" : limit },
                 dataType:'JSON',
@@ -321,30 +250,12 @@ if (empty($_SESSION['user_email'])) {
                         location.href='notice.php';
                     });
 
-                    $("button.btn-edit-link").click(function() {
-                        let id = this.getAttribute("id");
-                        // console.log(id);
-                        // console.log(dictNotices[id]);
-                        localStorage.setItem('notice', JSON.stringify(dictNotices[id]));
-                        location.href='edit-notice.php';
-                    });
-
-                    $("button.btn-delete-link").click(function() {
-                        idDeleteNotice = this.getAttribute("id");
-                        // console.log(id);
-                        // console.log(dictNotices[id]);
-                        $('#modal-delete').show();
-                    });
-
                 }
             });
 
         };
 
 
-        $("#btn-create-notice").click( function () {
-            location.href='create-notice.php';
-        });
 
         $("#btn-load-more").click(function () {
             offsetNotices += 10;
@@ -371,35 +282,6 @@ if (empty($_SESSION['user_email'])) {
         });
         $('#modal-error-ok-button').click(function () {
             $('#modal-error').hide();
-        });
-        $('#modal-delete-cancel').click(function () {
-            $('#modal-delete').hide();
-            idDeleteNotice = -1;
-        });
-        $('#modal-delete-confirm').click(function () {
-            $('#modal-delete').hide();
-            if (idDeleteNotice !== -1){
-                $("#modal-load").show();
-
-                $.post("../../php/delete-notice-process.php",
-                {
-                    id: idDeleteNotice
-                },
-                function(data, status){
-                    $("#modal-load").hide();
-
-                    var res = JSON.parse(data);
-
-                    if (res.status === 'success'){
-                        // console.log(res.message);
-                        $('#modal-sucess').show();
-
-
-                    } else{
-                        $('#modal-error').show();
-                    }
-                });
-            }
         });
 
 

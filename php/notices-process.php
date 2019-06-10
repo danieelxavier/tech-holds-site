@@ -1,10 +1,9 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
-
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "tech-holds-site";
+    $servername = "localhost:3306";
+    $username = "techho97_tech";
+    $password = "tech-holds2019";
+    $dbname = "techho97_blog";
 
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);
@@ -13,9 +12,19 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    $limit = 10;
-    $offset = $_GET['offset'];
+    if(isset($_GET['limit'])){
+        $limit = $_GET['limit'];
+    }
+    else{
+        $limit = 10;
+    }
 
+    if(isset($_GET['offset'])){
+        $offset = $_GET['offset'];
+    }
+    else{
+        $offset = 0;
+    }
 
     $sql = "SELECT notice.id, notice.title, notice.body, notice.image, notice.release_date, user.name 
             FROM notice JOIN user ON notice.user_id = user.id 
