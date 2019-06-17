@@ -247,7 +247,7 @@ if (empty($_SESSION['user_email'])) {
                         // console.log(id);
                         // console.log(dictNotices[id]);
                         localStorage.setItem('notice', JSON.stringify(dictNotices[id]));
-                        location.href='notice.php';
+                        location.href='notice.php?notice='+id;
                     });
 
                 }

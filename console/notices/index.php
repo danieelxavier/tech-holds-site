@@ -297,7 +297,7 @@ if (empty($_SESSION['user_email'])) {
                     "limit" : limit },
                 dataType:'JSON',
                 success: function(response){
-                    // console.log(response);
+                    console.log(response);
 
                     $('#load-spinner').hide();
 
@@ -317,8 +317,7 @@ if (empty($_SESSION['user_email'])) {
                         let id = this.getAttribute("id");
                         // console.log(id);
                         // console.log(dictNotices[id]);
-                        localStorage.setItem('notice', JSON.stringify(dictNotices[id]));
-                        location.href='notice.php';
+                        location.href='notice.php?notice='+id;
                     });
 
                     $("button.btn-edit-link").click(function() {

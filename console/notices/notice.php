@@ -159,29 +159,56 @@ if (empty($_SESSION['user_email'])) {
 
     <script type="text/javascript">
 
-        var objNotice = JSON.parse(localStorage.getItem('notice'));
-        // console.log(objNotice);
+        var url = new URL(location.href);
 
-        var header = document.getElementById("notice-header");
 
-        var date = header.appendChild(document.createElement("p"));
-        var title = header.appendChild(document.createElement("h1"));
-        date.innerHTML = "Last modified: "+timeConverter(parseInt(objNotice.modifiedDate));
-        title.innerHTML = objNotice.title;
+        var loadNoticeByDB = function(id){
 
-        var image = document.getElementById("notice-image");
-        var imagePath;
-        if(objNotice.image){
-            imagePath = '../../uploads/'+objNotice.image;
-            var img = image.appendChild(document.createElement("img"));
-            img.setAttribute("src", imagePath);
-            img.setAttribute("alt", objNotice.title);
-        }
+            var dictNotices = {};
+            $.ajax({
+                type: "GET",
+                url: "../../php/notices-process.php",
+                data: {"id" : id},
+                dataType:'JSON',
+                success: function(response){
+                    // console.log(response);
 
-        var text = document.getElementById("notice-text");
-        var txt = text.appendChild(document.createElement("p"));
-        txt.innerHTML = objNotice.body;
+                    $('#load-spinner').hide();
 
+
+                    if(response.length > 0){
+                        let objNotice = response[0];
+
+                        var header = document.getElementById("notice-header");
+
+                        var date = header.appendChild(document.createElement("p"));
+                        var title = header.appendChild(document.createElement("h1"));
+                        date.innerHTML = "Last modified: "+timeConverter(parseInt(objNotice.modifiedDate));
+                        title.innerHTML = objNotice.title;
+
+                        var image = document.getElementById("notice-image");
+                        var imagePath;
+                        if(objNotice.image){
+                            imagePath = '../../uploads/'+objNotice.image;
+                            var img = image.appendChild(document.createElement("img"));
+                            img.setAttribute("src", imagePath);
+                            img.setAttribute("alt", objNotice.title);
+                        }
+
+                        var text = document.getElementById("notice-text");
+                        var txt = text.appendChild(document.createElement("p"));
+                        txt.innerHTML = objNotice.body;
+                    }
+
+                }
+            });
+
+        };
+
+
+        var id = url.searchParams.get("notice");
+
+        loadNoticeByDB(id);
 
 
         function timeConverter(UNIX_timestamp){

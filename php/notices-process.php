@@ -26,11 +26,24 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
         $offset = 0;
     }
 
-    $sql = "SELECT notice.id, notice.title, notice.body, notice.image, notice.release_date, user.name 
+
+    if(isset($_GET['id'])) {
+        $id = $_GET['id'];
+        $sql = "SELECT notice.id, notice.title, notice.body, notice.image, notice.release_date, user.name 
+            FROM notice JOIN user ON notice.user_id = user.id 
+            WHERE notice.id = '$id'
+            ORDER BY notice.release_date DESC 
+            LIMIT {$limit} 
+            OFFSET {$offset}";
+    }
+    else{
+        $sql = "SELECT notice.id, notice.title, notice.body, notice.image, notice.release_date, user.name 
             FROM notice JOIN user ON notice.user_id = user.id 
             ORDER BY notice.release_date DESC 
             LIMIT {$limit} 
             OFFSET {$offset}";
+    }
+
 
     $result = $conn->query($sql);
 

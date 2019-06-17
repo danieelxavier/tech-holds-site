@@ -720,14 +720,12 @@
 
                     $("a.read-more-link").click(function() {
                         let id = this.getAttribute("id");
-                        localStorage.setItem('notice', JSON.stringify(dictNotices[id]));
-                        window.open('blog/notice.php', '_blank');
+                        window.open('blog/notice.php?notice='+id, '_blank');
                     });
 
                     $("a.title-link").click(function() {
                         let id = this.getAttribute("id");
-                        localStorage.setItem('notice', JSON.stringify(dictNotices[id]));
-                        window.open('blog/notice.php', '_blank');
+                        window.open('blog/notice.php?notice='+id, '_blank');
                     });
 
                 }
