@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST)) {
     $login = stripcslashes($login);
     $passcode = stripcslashes($passcode);
 
-    $passcode = md5($passcode, false);
+//    $passcode = md5($passcode, false);
 
 
     $db = mysqli_connect("localhost:3306", "techho97_tech", "tech-holds2019", "techho97_blog");
@@ -31,16 +31,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST)) {
     // If result matched $myusername and $mypassword, table row must be 1 row
 
 
+    $res_status = "";
+    $res_message = "";
     if ($count == 1) {
         $_SESSION['user_email'] = $myusername;
         $_SESSION['user_name'] = $row['name'];
         $_SESSION['user_id'] = $row['id'];
-//        echo "Welcome ".$row['name'];
 
-        header("location: ../console/");
+        $res_status = "success";
+        $res_message = "Login success";
     } else {
-        $error = "Your Login Name or Password is invalid";
-//        echo $error;
+        $res_status = "fail";
+        $res_message = "Your Login Name or Password is invalid";
     }
+
+    mysqli_close($db);
+
+    $res = array('status'=>$res_status, "message" => $res_message);
+    echo json_encode($res);
 }
 ?>

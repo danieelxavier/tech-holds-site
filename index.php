@@ -431,7 +431,7 @@
 <!--                                </div>-->
 <!--                            </div>-->
                         </div>
-                        <a href="blog/index.php" target="_blank" style="cursor: pointer; float: right; margin-top: 10px;">SHOW ALL POSTS</a>
+                        <a href="blog" target="_blank" style="cursor: pointer; float: right; margin-top: 10px;">SHOW ALL POSTS</a>
                     </div>
                 </div>
 
